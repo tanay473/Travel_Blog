@@ -1,0 +1,110 @@
+/* src/styles/DestinationsPage.css */
+
+.destinations-page {
+  padding: 40px 0;
+}
+
+.destinations-page h1 {
+  text-align: center;
+  font-size: 3em;
+  color: #005662;
+  margin-bottom: 20px;
+}
+
+.destinations-page .page-intro {
+  text-align: center;
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+.destination-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.destination-card-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover;
+  display: block;
+}
+
+.destination-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows content to grow and push button to bottom */
+}
+
+.destination-card-content h3 {
+  font-size: 1.8em;
+  color: #005662;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.destination-card-excerpt {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1; /* Allow excerpt to take available space */
+}
+
+.destination-card .read-more-btn {
+  display: inline-block;
+  background-color: #FF8C00;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95em;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: auto; /* Push button to the bottom of the card */
+}
+
+.destination-card .read-more-btn:hover {
+  background-color: #e67e00;
+}
+
+/* Messages for loading/error/no posts */
+.loading-message,
+.error-message,
+.no-destinations-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #777;
+  padding: 30px 0;
+}
+
+.error-message {
+  color: #D8000C;
+  background-color: #FFD2D2;
+  border: 1px solid #D8000C;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+}

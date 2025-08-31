@@ -1,0 +1,119 @@
+.hero-section {
+  background-image: url('https://images.unsplash.com/photo-1490604015690-b18c0c0082ea?auto=format&fit=crop&w=1600&h=600&q=80'); /* Example hero image */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  min-height: 500px; /* Ensure hero is visible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-section::before { /* Overlay for better text readability */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+}
+
+.hero-content {
+  position: relative; /* Bring content above overlay */
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero-content h2 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.featured-posts-section, .destination-highlights-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.featured-posts-section h2, .destination-highlights-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #005662; /* Deep Teal */
+}
+
+.post-grid, .destination-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.view-all-link {
+  margin-top: 30px;
+}
+
+.highlight-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.highlight-card h3 {
+  font-size: 1.4em;
+  color: #005662;
+  margin: 15px 0 10px;
+}
+
+.highlight-card p {
+  font-size: 0.95em;
+  color: #666;
+  padding: 0 15px;
+  flex-grow: 1; /* Push button to bottom */
+}
+
+.highlight-card .btn-tertiary {
+  margin: 15px auto 20px; /* Centered button */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2.5em;
+  }
+  .hero-content p {
+    font-size: 1em;
+  }
+  .featured-posts-section h2, .destination-highlights-section h2 {
+    font-size: 2em;
+  }
+  .post-grid, .destination-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+}

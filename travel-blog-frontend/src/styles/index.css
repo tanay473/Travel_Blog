@@ -1,0 +1,100 @@
+/* Basic global styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif; /* Example font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+  line-height: 1.6;
+  background-color: #F8F8F8; /* Light gray background */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #005662; /* Deep Teal */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* Example heading font */
+  color: #004D54; /* Slightly darker teal for headings */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Reusable Button Styles */
+.btn-primary, .btn-secondary, .btn-tertiary, .btn-small {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1em;
+}
+
+.btn-primary {
+  background-color: #FF8C00; /* Sunset Orange */
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #E67E00;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #005662; /* Deep Teal */
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #003F47;
+  transform: translateY(-2px);
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: #005662;
+  border: 1px solid #005662;
+}
+
+.btn-tertiary:hover {
+  background-color: #005662;
+  color: #fff;
+}
+
+.btn-small {
+  padding: 8px 15px;
+  font-size: 0.9em;
+}
+
+.error-message {
+  color: #D8000C;
+  background-color: #FFD2D2;
+  border: 1px solid #D8000C;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.no-post-found, .no-blog-posts-available {
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 1.2em;
+  color: #666;
+}
