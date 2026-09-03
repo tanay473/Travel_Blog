@@ -10,7 +10,7 @@ function Footer() {
         <div className="footer-brand">
           <Link to="/" className="logo">
             <span className="logo-icon"><i className="fa-solid fa-compass"></i></span>
-            <span className="logo-text">Wanderlust<span className="logo-dot">.</span></span>
+            <span className="logo-text">Vignette<span className="logo-dot">.</span></span>
           </Link>
           <p className="footer-tagline">
             AI-powered travel blog indexing world destinations with smart semantic NLP tagging.
@@ -48,7 +48,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom container">
-        <p>&copy; {new Date().getFullYear()} Wanderlust Blog. Powered by AI & Node.js Backend.</p>
+        <p>&copy; {new Date().getFullYear()} Vignette Voyages. Powered by AI & Node.js Backend.</p>
       </div>
     </footer>
   );

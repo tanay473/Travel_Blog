@@ -44,7 +44,7 @@ function BlogPostsPage() {
     <div className="blog-posts-page container animate-fade-in">
       <div className="page-header text-center">
         <div className="badge badge-emerald">
-          <i className="fa-solid fa-compass"></i> Wanderlust Library
+          <i className="fa-solid fa-compass"></i> Vignette Voyages Library
         </div>
         <h1>
           {filterTag ? `Stories Tagged with "#${filterTag}"` : 'All Travel Stories'}

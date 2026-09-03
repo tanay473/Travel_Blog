@@ -11,7 +11,7 @@ function Header() {
       <div className="container header-content">
         <Link to="/" className="logo">
           <span className="logo-icon"><i className="fa-solid fa-compass"></i></span>
-          <span className="logo-text">Wanderlust<span className="logo-dot">.</span></span>
+          <span className="logo-text">Vignette<span className="logo-dot">.</span></span>
         </Link>
 
         <button 

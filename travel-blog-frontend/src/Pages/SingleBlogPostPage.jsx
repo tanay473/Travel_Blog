@@ -30,7 +30,7 @@ function SingleBlogPostPage() {
 
         // --- SEO Optimization & Crawler Injection ---
         if (data) {
-          document.title = `${data.title} | Wanderlust Travel`;
+          document.title = `${data.title} | Vignette Voyages`;
           
           // Update or inject Meta Keywords
           let metaKeywords = document.querySelector('meta[name="keywords"]');

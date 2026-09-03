@@ -106,7 +106,7 @@ function ContactPage() {
                 <i className="fa-solid fa-envelope info-icon"></i>
                 <div>
                   <strong>Email Inquiry:</strong>
-                  <div>hello@wanderlustblog.com</div>
+                  <div>hello@vignettevoyages.com</div>
                 </div>
               </li>
               <li>

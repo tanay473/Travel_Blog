@@ -20,7 +20,7 @@ let inMemoryPosts = [
     readingTime: 4, views: 342, likes: 87, nlpProcessed: true,
     experienceType: 'Nature',
     uniqueFeatures: ['Lauterbrunnen 72 Waterfalls Valley', 'Jungfraujoch Top of Europe'],
-    authorContact: { email: 'elena@wanderlust.com', social: '@elenarostova' },
+    authorContact: { email: 'elena@vignettevoyages.com', social: '@elenarostova' },
     reports: [], isFlagged: false
   },
   {
@@ -40,7 +40,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 298, likes: 64, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['300-Year-Old Gion Tea House', 'Nishiki Market Street Food'],
-    authorContact: { email: 'kenji@wanderlust.com', social: '@kenjisato' },
+    authorContact: { email: 'kenji@vignettevoyages.com', social: '@kenjisato' },
     reports: [], isFlagged: false
   },
   {
@@ -60,7 +60,7 @@ let inMemoryPosts = [
     readingTime: 4, views: 485, likes: 112, nlpProcessed: true,
     experienceType: 'Nature',
     uniqueFeatures: ['Sentiero degli Dei Cliff Trail', 'Positano Sunset Viewpoint'],
-    authorContact: { email: 'marco@wanderlust.com', social: '@marcorossi' },
+    authorContact: { email: 'marco@vignettevoyages.com', social: '@marcorossi' },
     reports: [], isFlagged: false
   },
   {
@@ -80,7 +80,7 @@ let inMemoryPosts = [
     readingTime: 6, views: 224, likes: 73, nlpProcessed: true,
     experienceType: 'Stay',
     uniqueFeatures: ['Private Riverside Onsen', 'Bamboo Grove Meditation Garden'],
-    authorContact: { email: 'yuki@wanderlust.com', social: '@yukitanaka' },
+    authorContact: { email: 'yuki@vignettevoyages.com', social: '@yukitanaka' },
     reports: [], isFlagged: false
   },
   {
@@ -100,7 +100,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 567, likes: 189, nlpProcessed: true,
     experienceType: 'Stay',
     uniqueFeatures: ['Hanifaru Bay Manta Ray Gathering', 'Glass-Floor Overwater Villa'],
-    authorContact: { email: 'priya@wanderlust.com', social: '@priyasharma' },
+    authorContact: { email: 'priya@vignettevoyages.com', social: '@priyasharma' },
     reports: [], isFlagged: false
   },
   {
@@ -120,7 +120,7 @@ let inMemoryPosts = [
     readingTime: 4, views: 312, likes: 91, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['Stall 14 Three-Generation Tagine', 'Rooftop Mint Tea at Café de France'],
-    authorContact: { email: 'fatima@wanderlust.com', social: '@fatimaexplores' },
+    authorContact: { email: 'fatima@vignettevoyages.com', social: '@fatimaexplores' },
     reports: [], isFlagged: false
   },
   {
@@ -140,7 +140,7 @@ let inMemoryPosts = [
     readingTime: 6, views: 421, likes: 134, nlpProcessed: true,
     experienceType: 'Nature',
     uniqueFeatures: ['Thingvellir Tectonic Plate Walk', 'Secret Lagoon Hot Spring'],
-    authorContact: { email: 'erik@wanderlust.com', social: '@eriknordic' },
+    authorContact: { email: 'erik@vignettevoyages.com', social: '@eriknordic' },
     reports: [], isFlagged: false
   },
   {
@@ -160,7 +160,7 @@ let inMemoryPosts = [
     readingTime: 4, views: 198, likes: 67, nlpProcessed: true,
     experienceType: 'Stay',
     uniqueFeatures: ['Rooftop Atlas Mountain Sunrise', 'Hidden Courtyard Plunge Pool'],
-    authorContact: { email: 'amina@wanderlust.com', social: '@aminabenali' },
+    authorContact: { email: 'amina@vignettevoyages.com', social: '@aminabenali' },
     reports: [], isFlagged: false
   },
   {
@@ -180,7 +180,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 376, likes: 95, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['Tegallalang Rice Terrace Sunrise Walk', 'Tirta Empul Sacred Water Temple'],
-    authorContact: { email: 'wayan@wanderlust.com', social: '@wayanubud' },
+    authorContact: { email: 'wayan@vignettevoyages.com', social: '@wayanubud' },
     reports: [], isFlagged: false
   },
   {
@@ -200,7 +200,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 623, likes: 201, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['Caldera Sunset Catamaran Cruise', 'Santo Wines Volcanic Cellar Tasting'],
-    authorContact: { email: 'sofia@wanderlust.com', social: '@sofiasantorini' },
+    authorContact: { email: 'sofia@vignettevoyages.com', social: '@sofiasantorini' },
     reports: [], isFlagged: false
   },
   {
@@ -220,7 +220,7 @@ let inMemoryPosts = [
     readingTime: 4, views: 189, likes: 54, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['Grindelwald Mountain Chalet Fondue', 'Milky Way Stargazing at 2000m'],
-    authorContact: { email: 'lukas@wanderlust.com', social: '@lukasbrunner' },
+    authorContact: { email: 'lukas@vignettevoyages.com', social: '@lukasbrunner' },
     reports: [], isFlagged: false
   },
   {
@@ -240,7 +240,7 @@ let inMemoryPosts = [
     readingTime: 7, views: 445, likes: 156, nlpProcessed: true,
     experienceType: 'Nature',
     uniqueFeatures: ['Grey Glacier Ice Wall', 'Torres del Paine Sunrise Viewpoint'],
-    authorContact: { email: 'camila@wanderlust.com', social: '@camilatorres' },
+    authorContact: { email: 'camila@vignettevoyages.com', social: '@camilatorres' },
     reports: [], isFlagged: false
   },
   {
@@ -260,7 +260,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 512, likes: 167, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['Tsukiji Outer Market Otoro Nigiri', 'Omoide Yokocho Yakitori Alleys'],
-    authorContact: { email: 'hiroshi@wanderlust.com', social: '@hiroshitokyo' },
+    authorContact: { email: 'hiroshi@vignettevoyages.com', social: '@hiroshitokyo' },
     reports: [], isFlagged: false
   },
   {
@@ -280,7 +280,7 @@ let inMemoryPosts = [
     readingTime: 4, views: 489, likes: 143, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['Du Pain et des Idées Croissants', 'Seine River Eiffel View Room'],
-    authorContact: { email: 'claire@wanderlust.com', social: '@clairedubois' },
+    authorContact: { email: 'claire@vignettevoyages.com', social: '@clairedubois' },
     reports: [], isFlagged: false
   },
   {
@@ -300,7 +300,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 601, likes: 215, nlpProcessed: true,
     experienceType: 'Nature',
     uniqueFeatures: ['Moraine Lake Sunrise Canoe', 'Valley of the Ten Peaks Viewpoint'],
-    authorContact: { email: 'liam@wanderlust.com', social: '@liamrockies' },
+    authorContact: { email: 'liam@vignettevoyages.com', social: '@liamrockies' },
     reports: [], isFlagged: false
   },
   {
@@ -320,7 +320,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 398, likes: 128, nlpProcessed: true,
     experienceType: 'Nature',
     uniqueFeatures: ['Banzai Pipeline Surf Spot', 'Diamond Head Crater Summit View'],
-    authorContact: { email: 'kai@wanderlust.com', social: '@kaikahale' },
+    authorContact: { email: 'kai@vignettevoyages.com', social: '@kaikahale' },
     reports: [], isFlagged: false
   },
   {
@@ -340,7 +340,7 @@ let inMemoryPosts = [
     readingTime: 5, views: 472, likes: 154, nlpProcessed: true,
     experienceType: 'Cuisine',
     uniqueFeatures: ['La Boqueria Jamón Ibérico Tasting', 'Sagrada Familia Stained Glass Forest'],
-    authorContact: { email: 'mateo@wanderlust.com', social: '@mateobarcelona' },
+    authorContact: { email: 'mateo@vignettevoyages.com', social: '@mateobarcelona' },
     reports: [], isFlagged: false
   },
   {
@@ -360,24 +360,24 @@ let inMemoryPosts = [
     readingTime: 6, views: 531, likes: 178, nlpProcessed: true,
     experienceType: 'Stay',
     uniqueFeatures: ['Chapman\'s Peak Cliffside Eco Lodge', 'Boulders Beach African Penguin Colony'],
-    authorContact: { email: 'zola@wanderlust.com', social: '@zolandlovu' },
+    authorContact: { email: 'zola@vignettevoyages.com', social: '@zolandlovu' },
     reports: [], isFlagged: false
   }
 ];
 
 let inMemoryUsers = [
-  { _id: 'u1', name: 'Elena Rostova', email: 'elena@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@elenarostova' } },
-  { _id: 'u2', name: 'Kenji Sato', email: 'kenji@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@kenjisato' } },
-  { _id: 'u3', name: 'Marco Rossi', email: 'marco@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@marcorossi' } },
-  { _id: 'u4', name: 'Yuki Tanaka', email: 'yuki@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@yukitanaka' } },
-  { _id: 'u5', name: 'Priya Sharma', email: 'priya@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@priyasharma' } },
-  { _id: 'u6', name: 'Fatima El Amrani', email: 'fatima@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@fatimaexplores' } },
-  { _id: 'u7', name: 'Erik Johansson', email: 'erik@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@eriknordic' } },
-  { _id: 'u8', name: 'Amina Benali', email: 'amina@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@aminabenali' } },
-  { _id: 'u9', name: 'Wayan Sudiarta', email: 'wayan@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@wayanubud' } },
-  { _id: 'u10', name: 'Sofia Papadopoulos', email: 'sofia@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@sofiasantorini' } },
-  { _id: 'u11', name: 'Lukas Brunner', email: 'lukas@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@lukasbrunner' } },
-  { _id: 'u12', name: 'Camila Torres', email: 'camila@wanderlust.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@camilatorres' } }
+  { _id: 'u1', name: 'Elena Rostova', email: 'elena@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@elenarostova' } },
+  { _id: 'u2', name: 'Kenji Sato', email: 'kenji@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@kenjisato' } },
+  { _id: 'u3', name: 'Marco Rossi', email: 'marco@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@marcorossi' } },
+  { _id: 'u4', name: 'Yuki Tanaka', email: 'yuki@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@yukitanaka' } },
+  { _id: 'u5', name: 'Priya Sharma', email: 'priya@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@priyasharma' } },
+  { _id: 'u6', name: 'Fatima El Amrani', email: 'fatima@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@fatimaexplores' } },
+  { _id: 'u7', name: 'Erik Johansson', email: 'erik@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@eriknordic' } },
+  { _id: 'u8', name: 'Amina Benali', email: 'amina@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@aminabenali' } },
+  { _id: 'u9', name: 'Wayan Sudiarta', email: 'wayan@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@wayanubud' } },
+  { _id: 'u10', name: 'Sofia Papadopoulos', email: 'sofia@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@sofiasantorini' } },
+  { _id: 'u11', name: 'Lukas Brunner', email: 'lukas@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@lukasbrunner' } },
+  { _id: 'u12', name: 'Camila Torres', email: 'camila@vignettevoyages.com', isBanned: false, banReason: '', reportsReceived: 0, contactInfo: { social: '@camilatorres' } }
 ];
 
 // Helper to check if Mongoose DB is connected

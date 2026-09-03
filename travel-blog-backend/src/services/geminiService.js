@@ -39,7 +39,7 @@ function generateFallbackMetadata(title, excerpt = '', content = '') {
     `${title.toLowerCase()} travel guide`,
     `${category.toLowerCase()} tips`,
     `best places to visit in ${title.split(' ')[0] || 'destination'}`,
-    `wanderlust travel blog`,
+    `vignette voyages travel blog`,
     `top travel recommendations`
   ];
 

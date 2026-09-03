@@ -199,7 +199,7 @@ function HomePage() {
           <div className="badge badge-purple">
             <i className="fa-solid fa-layer-group"></i> Bento Grid Experience
           </div>
-          <h2>Curated Wanderlust Highlights</h2>
+          <h2>Curated Vignette Voyages Highlights</h2>
           <p className="section-subtitle">Immersive travel architectures crafted for modern explorers</p>
         </div>
 

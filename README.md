@@ -1,4 +1,4 @@
-# ✈️ Wanderlust Travel Blog Platform
+# ✈️ Vignette Voyages Travel Platform
 
 A full-stack travel platform featuring **Destination Community Hubs**, **Experience Ranking** (Cuisine, Stay, Nature), **AI-Powered Story Tagging**, **User Ethics Moderation**, and a **Light Magazine Web Interface**.
 

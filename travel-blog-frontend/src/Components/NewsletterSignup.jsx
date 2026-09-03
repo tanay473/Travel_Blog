@@ -19,7 +19,7 @@ function NewsletterSignup() {
         <div className="newsletter-badge">
           <i className="fa-solid fa-paper-plane"></i> Weekly Expedition Log
         </div>
-        <h2>Join the Wanderlust Circle</h2>
+        <h2>Join the Vignette Voyages Circle</h2>
         <p>Receive handpicked travel itineraries, AI destination analysis, and secret deals directly in your inbox.</p>
 
         <form onSubmit={handleSubmit} className="newsletter-form">
