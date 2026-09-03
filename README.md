@@ -20,7 +20,7 @@
   - **🏨 Stays & Resorts**: Glass-floor overwater villas, desert riads, private onsens, cliffside eco-lodges.
   - **🏔️ Nature & Hiking**: Alpine glacier trails, northern lights, volcanic craters, turquoise lake canoeing.
 
-### 4. 🍏 iOS 18 Liquid Glassmorphic Aesthetic
+### 4. Liquid Glassmorphic Aesthetic
 - **Sand & Warm Alabaster Palette**: Clean editorial canvas (`#fbf9f5` base, warm terracotta `#c2593f` & forest emerald `#137547` accents).
 - **Specular Glass Icons**: Squircle app icons with top specular lighting, inner drop shadows, and spring-physics hover micro-interactions (`backdrop-filter: blur(20px) saturate(180%)`).
 - **Immersive Video Hero Slider**: Interactive scene switcher with dynamic background motion.
