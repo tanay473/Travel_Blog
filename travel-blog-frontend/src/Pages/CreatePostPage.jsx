@@ -17,6 +17,7 @@ function CreatePostPage() {
     tags: ''
   });
 
+  const [nlpPreview, setNlpPreview] = useState(null);
   const [exifData, setExifData] = useState({
     verified: true,
     gpsLocation: '35.0037° N, 135.7772° E (Verified Location)',
