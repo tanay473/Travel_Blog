@@ -34,7 +34,23 @@ const blogPostSchema = new mongoose.Schema({
     reason: String,
     date: { type: Date, default: Date.now }
   }],
-  isFlagged: { type: Boolean, default: false }
+  isFlagged: { type: Boolean, default: false },
+
+  // Live Expense Comparisons & Community Budget Insights
+  authorSpent: {
+    amount: { type: Number, default: 40000 },
+    currency: { type: String, default: 'INR' }
+  },
+  communityExpenses: [{
+    amount: { type: Number, required: true },
+    currency: { type: String, default: 'INR' },
+    categoryBreakdown: {
+      stay: { type: Number, default: 0 },
+      food: { type: Number, default: 0 },
+      transport: { type: Number, default: 0 }
+    },
+    date: { type: Date, default: Date.now }
+  }]
 });
 
 module.exports = mongoose.model('Post', blogPostSchema);

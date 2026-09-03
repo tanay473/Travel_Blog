@@ -105,6 +105,15 @@ const blogApi = {
       body: JSON.stringify(data)
     });
     return res.json();
+  },
+
+  addExpenseSubmission: async (postId, expenseData) => {
+    const res = await fetch(`${API_BASE_URL}/posts/${postId}/expenses`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(expenseData)
+    });
+    return res.json();
   }
 };
 

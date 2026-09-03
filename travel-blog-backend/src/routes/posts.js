@@ -38,4 +38,7 @@ router.get('/destinations/:destination/community', postController.getDestination
 router.post('/posts/:id/report', postController.reportPost);
 router.post('/users/:userId/ban', postController.banUser);
 
+// Live Expense Comparisons & Budget Insights
+router.post('/posts/:id/expenses', postController.addExpenseSubmission);
+
 module.exports = router;

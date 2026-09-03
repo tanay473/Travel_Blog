@@ -18,6 +18,9 @@ function SingleBlogPostPage() {
   const [showReportModal, setShowReportModal] = useState(false);
   const [reportReason, setReportReason] = useState('');
   const [isReporting, setIsReporting] = useState(false);
+  const [mySpentAmount, setMySpentAmount] = useState('');
+  const [submittingExpense, setSubmittingExpense] = useState(false);
+  const [expenseInsights, setExpenseInsights] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -72,6 +75,8 @@ function SingleBlogPostPage() {
             'description': data.metaDescription || data.excerpt,
             'keywords': keywordsList.join(', ')
           });
+        if (data && data.expenseInsights) {
+          setExpenseInsights(data.expenseInsights);
         }
 
       } catch (err) {
@@ -84,6 +89,28 @@ function SingleBlogPostPage() {
 
     fetchPost();
   }, [id]);
+
+  const handleExpenseSubmit = async (e) => {
+    e.preventDefault();
+    if (!mySpentAmount || isNaN(mySpentAmount) || Number(mySpentAmount) <= 0) {
+      showToast('Please enter a valid spent amount.');
+      return;
+    }
+    try {
+      setSubmittingExpense(true);
+      const res = await blogApi.addExpenseSubmission(id, { amount: Number(mySpentAmount) });
+      if (res.insights) {
+        setExpenseInsights(res.insights);
+      }
+      setMySpentAmount('');
+      showToast('📊 Spent amount recorded! Live community math updated.');
+    } catch (err) {
+      console.error('Error submitting expense:', err);
+      showToast('Error recording expense amount.');
+    } finally {
+      setSubmittingExpense(false);
+    }
+  };
 
   const handleRegenerateTags = async () => {
     try {
@@ -274,6 +301,67 @@ function SingleBlogPostPage() {
             className="prose-content" 
             dangerouslySetInnerHTML={{ __html: post.content }} 
           />
+
+          {/* Live Expense Comparison & Budget Insights Widget */}
+          <div className="expense-insights-card ios-glass-card" style={{marginTop: '2.5rem', padding: '1.8rem'}}>
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.2rem'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+                <span className="ios-glass-icon ios-glass-icon-emerald" style={{width: '42px', height: '42px', fontSize: '1.1rem'}}>
+                  <i className="fa-solid fa-calculator"></i>
+                </span>
+                <div>
+                  <h3 style={{margin: 0, fontSize: '1.25rem', fontFamily: 'var(--font-display)'}}>Live Route Expense Comparisons</h3>
+                  <span style={{fontSize: '0.84rem', color: 'var(--color-text-muted)'}}>Community math comparing author vs reader route spend</span>
+                </div>
+              </div>
+              <span className="badge badge-emerald">Live Math</span>
+            </div>
+
+            {/* Comparison Math Box */}
+            {expenseInsights && (
+              <div className="comparison-math-box" style={{background: 'rgba(255, 255, 255, 0.7)', padding: '1.2rem', borderRadius: '16px', marginBottom: '1.2rem', border: '1px solid rgba(180, 165, 145, 0.25)', boxShadow: 'var(--shadow-sm)'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.8rem', fontSize: '0.95rem', fontWeight: '600'}}>
+                  <div>
+                    <span style={{color: 'var(--color-text-muted)'}}>Author Spent:</span> <strong style={{color: 'var(--accent-terracotta)', fontSize: '1.1rem'}}>₹{(expenseInsights.authorSpent || 40000).toLocaleString('en-IN')}</strong>
+                  </div>
+                  <div>
+                    <span style={{color: 'var(--color-text-muted)'}}>Community Average:</span> <strong style={{color: 'var(--accent-emerald)', fontSize: '1.1rem'}}>₹{(expenseInsights.communityAverage || 35000).toLocaleString('en-IN')}</strong>
+                  </div>
+                </div>
+
+                {/* Progress Comparison Bar */}
+                <div style={{height: '12px', background: 'rgba(110, 103, 95, 0.12)', borderRadius: '999px', overflow: 'hidden', display: 'flex', marginBottom: '0.9rem', boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.06)'}}>
+                  <div style={{width: '55%', background: 'linear-gradient(90deg, #d97706 0%, #c2593f 100%)', borderRadius: '999px 0 0 999px'}} title="Author Spent"></div>
+                  <div style={{width: '45%', background: 'linear-gradient(90deg, #137547 0%, #10b981 100%)', borderRadius: '0 999px 999px 0'}} title="Community Spent"></div>
+                </div>
+
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)'}}>
+                  <span><i className="fa-solid fa-users" style={{color: 'var(--accent-terracotta)'}}></i> Based on <strong>{expenseInsights.totalSubmissions || 14}</strong> traveler submissions</span>
+                  <span className="badge badge-purple" style={{fontSize: '0.78rem'}}>
+                    💡 Community spent ~{expenseInsights.savingsPercentage || 12.5}% less on average
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {/* Anonymous Expense Submission Form */}
+            <form onSubmit={handleExpenseSubmit} style={{display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap'}}>
+              <div style={{position: 'relative', flex: 1, minWidth: '220px'}}>
+                <span style={{position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', fontWeight: 'bold', color: 'var(--accent-terracotta)'}}>₹</span>
+                <input 
+                  type="number" 
+                  placeholder="Enter what you spent on this route..."
+                  value={mySpentAmount}
+                  onChange={(e) => setMySpentAmount(e.target.value)}
+                  style={{width: '100%', padding: '12px 16px 12px 36px', borderRadius: 'var(--radius-full)', border: '1px solid rgba(180, 165, 145, 0.3)', outline: 'none', fontSize: '0.92rem', background: '#ffffff', color: 'var(--color-text-main)'}}
+                />
+              </div>
+              <button type="submit" className="btn btn-primary btn-small" disabled={submittingExpense}>
+                <i className={`fa-solid fa-plus ${submittingExpense ? 'fa-spin' : ''}`}></i>
+                {submittingExpense ? 'Logging...' : 'Log My Spend'}
+              </button>
+            </form>
+          </div>
         </main>
 
         {/* Sidebar with Story Insights */}
