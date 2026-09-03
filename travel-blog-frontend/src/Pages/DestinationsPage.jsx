@@ -124,23 +124,29 @@ function DestinationsPage() {
         <p className="subtitle">Discover handpicked global travel hotspots and immerse yourself in world cultures.</p>
       </div>
 
-      <div className="destinations-grid">
-        {destinations.map(dest => (
-          <Link to={`/destinations/${encodeURIComponent(dest.id)}`} key={dest.id} className="destination-card glass-card" style={{textDecoration: 'none', color: 'inherit'}}>
-            <div className="dest-image-box">
-              <img src={dest.image} alt={dest.name} loading="lazy" />
-              <span className="badge badge-purple dest-badge">{dest.region}</span>
-            </div>
-
-            <div className="dest-card-content">
-              <h3>{dest.name}</h3>
-              <p className="dest-desc">{dest.excerpt}</p>
-              <div className="btn btn-primary btn-small">
-                View Destination Stories <i className="fa-solid fa-arrow-right"></i>
+      <div className="bento-grid destinations-bento-grid">
+        {destinations.map((dest, index) => {
+          const colSpanClass = (index % 3 === 0) ? 'bento-col-8' : 'bento-col-4';
+          return (
+            <Link 
+              to={`/destinations/${encodeURIComponent(dest.name)}`} 
+              key={dest.id} 
+              className={`bento-card ${colSpanClass} destination-bento-item animate-fade-in stagger-${(index % 4) + 1}`}
+            >
+              <div className="dest-bento-image-wrapper">
+                <img src={dest.image} alt={dest.name} loading="lazy" />
+                <div className="dest-bento-overlay">
+                  <span className="badge badge-amber">{dest.region}</span>
+                  <h3>{dest.name}</h3>
+                  <p>{dest.excerpt}</p>
+                  <span className="bento-explore-btn">
+                    Explore Community <i className="fa-solid fa-arrow-right"></i>
+                  </span>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

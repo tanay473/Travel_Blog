@@ -18,6 +18,30 @@ const POPULAR_NLP_TAGS = [
   'Eco Tourism'
 ];
 
+const HERO_SLIDES = [
+  {
+    id: 1,
+    title: 'Coastal Aerial Drift',
+    location: 'Mediterranean Sea',
+    videoUrl: 'https://cdn.coverr.co/videos/coverr-drone-shot-of-the-sea-coast-5321/1080p.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80'
+  },
+  {
+    id: 2,
+    title: 'Alpine Summit Glow',
+    location: 'Swiss Alps',
+    videoUrl: 'https://cdn.coverr.co/videos/coverr-flying-over-mountains-5347/1080p.mp4',
+    poster: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1920&q=80'
+  },
+  {
+    id: 3,
+    title: 'Tropical Rainforest Sanctuary',
+    location: 'Ubud, Bali',
+    videoUrl: 'https://cdn.coverr.co/videos/coverr-waterfall-in-a-forest-4241/1080p.mp4',
+    poster: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80'
+  }
+];
+
 function HomePage() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -25,6 +49,7 @@ function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -41,12 +66,14 @@ function HomePage() {
       }
     };
     fetchPosts();
+  }, []);
 
-    // Ensure continuous motion video playback
+  useEffect(() => {
     if (videoRef.current) {
+      videoRef.current.load();
       videoRef.current.play().catch(e => console.log('Autoplay handled:', e));
     }
-  }, []);
+  }, [activeSlide]);
 
   const handleTagFilter = (tag) => {
     setActiveTag(tag);
@@ -88,9 +115,11 @@ function HomePage() {
 
   if (loading) return <LoadingSpinner />;
 
+  const currentSlideData = HERO_SLIDES[activeSlide];
+
   return (
     <div className="home-page">
-      {/* Background Video Hero Section */}
+      {/* Immersive Video Hero Section with Slider Controls */}
       <section className="hero-section">
         <div className="video-background">
           <video 
@@ -100,10 +129,9 @@ function HomePage() {
             muted 
             playsInline 
             crossOrigin="anonymous"
-            poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80"
+            poster={currentSlideData.poster}
           >
-            <source src="https://cdn.coverr.co/videos/coverr-drone-shot-of-the-sea-coast-5321/1080p.mp4" type="video/mp4" />
-            <source src="https://cdn.coverr.co/videos/coverr-flying-over-mountains-5347/1080p.mp4" type="video/mp4" />
+            <source src={currentSlideData.videoUrl} type="video/mp4" />
           </video>
           <div className="video-overlay"></div>
           <div className="animated-motion-waves"></div>
@@ -111,7 +139,7 @@ function HomePage() {
 
         <div className="container hero-content animate-fade-in">
           <div className="hero-pill-badge">
-            <i className="fa-solid fa-wand-magic-sparkles"></i> Smart Travel Discovery
+            <i className="fa-solid fa-compass"></i> Smart Travel Discovery
           </div>
           <h1 className="hero-title">
             Discover Your Next <span className="gradient-text">Great Adventure</span>
@@ -120,7 +148,7 @@ function HomePage() {
             Real stories from real travelers. Browse curated adventures, hidden gems, and local tips — intelligently organized so you find exactly what inspires you.
           </p>
 
-          {/* Interactive Live Search Bar */}
+          {/* Interactive Search Bar */}
           <div className="search-box-wrapper">
             <i className="fa-solid fa-magnifying-glass search-icon"></i>
             <input 
@@ -145,10 +173,100 @@ function HomePage() {
               <i className="fa-solid fa-plus"></i> Publish Story
             </Link>
           </div>
+
+          {/* Immersive Hero Slider Switch Controls */}
+          <div className="hero-slider-controls">
+            {HERO_SLIDES.map((slide, index) => (
+              <button 
+                key={slide.id} 
+                className={`slider-thumb-btn ${activeSlide === index ? 'active' : ''}`}
+                onClick={() => setActiveSlide(index)}
+              >
+                <span className="slide-num">0{index + 1}</span>
+                <span className="slide-name">{slide.location}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* NLP Tag Cloud Section */}
+      {/* Bento Grid Experience Showcase */}
+      <section className="bento-experience-section container">
+        <div className="section-header text-center">
+          <div className="badge badge-purple">
+            <i className="fa-solid fa-layer-group"></i> Bento Grid Experience
+          </div>
+          <h2>Curated Wanderlust Highlights</h2>
+          <p className="section-subtitle">Immersive travel architectures crafted for modern explorers</p>
+        </div>
+
+        <div className="bento-grid">
+          {/* Tile 1: Large Featured Spotlight */}
+          <div className="bento-card bento-col-8 bento-feature-spotlight">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Spotlight" />
+            <div className="bento-spotlight-content">
+              <span className="badge badge-amber">Spotlight Destination</span>
+              <h3>Kyoto's Gion & Historic Tea Houses</h3>
+              <p>Stroll through 300-year-old machiya alleys, sample traditional Kaiseki dining, and experience serene riverside onsens.</p>
+              <Link to="/destinations/Kyoto,%20Japan" className="btn btn-primary btn-small">
+                Explore Kyoto Community <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+          </div>
+
+          {/* Tile 2: Real-time Destination Pulse */}
+          <div className="bento-card bento-col-4 bento-pulse-card">
+            <div className="bento-card-inner">
+              <div className="badge badge-emerald">
+                <i className="fa-solid fa-chart-line"></i> Live Pulse
+              </div>
+              <h3>Trending Features</h3>
+              <ul className="pulse-list">
+                <li><i className="fa-solid fa-utensils"></i> <strong>300-Yr Gion Tea House</strong> (Kyoto)</li>
+                <li><i className="fa-solid fa-water"></i> <strong>72 Waterfalls Valley</strong> (Swiss Alps)</li>
+                <li><i className="fa-solid fa-fish"></i> <strong>Hanifaru Manta Rays</strong> (Maldives)</li>
+                <li><i className="fa-solid fa-mountain"></i> <strong>Path of the Gods</strong> (Amalfi)</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Tile 3: Experience Specialty Filters */}
+          <div className="bento-card bento-col-4 bento-experience-card">
+            <div className="bento-card-inner">
+              <h3>Specialty Filters</h3>
+              <p>Find stories tailored to your travel style:</p>
+              <div className="specialty-pills-stack">
+                <Link to="/destinations/Kyoto,%20Japan" className="specialty-item cuisine">
+                  <span>🍱 Cuisine & Dining</span>
+                  <i className="fa-solid fa-chevron-right"></i>
+                </Link>
+                <Link to="/destinations/Baa%20Atoll,%20Maldives" className="specialty-item stay">
+                  <span>🏨 Stays & Resorts</span>
+                  <i className="fa-solid fa-chevron-right"></i>
+                </Link>
+                <Link to="/destinations/Interlaken,%20Switzerland" className="specialty-item nature">
+                  <span>🏔️ Nature & Hiking</span>
+                  <i className="fa-solid fa-chevron-right"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Tile 4: Minimalist Split Screen Quote */}
+          <div className="bento-card bento-col-8 bento-split-quote">
+            <div className="split-quote-left">
+              <i className="fa-solid fa-quote-left quote-mark"></i>
+              <blockquote>"Travel is not about the destination, but the quiet moments and shared meals along the way."</blockquote>
+              <div className="quote-author">— Elena Rostova, Alpine Explorer</div>
+            </div>
+            <div className="split-quote-right">
+              <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" alt="Swiss Alps View" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Category Cloud Section */}
       <section className="nlp-tag-cloud-section container">
         <div className="section-header">
           <div className="badge badge-purple">
@@ -171,7 +289,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Featured / Filtered Blog Posts */}
+      {/* Featured / Filtered Blog Posts Grid */}
       <section className="featured-posts-section container">
         <div className="section-header flex-header">
           <div>
@@ -191,8 +309,10 @@ function HomePage() {
 
         <div className="post-grid">
           {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
-              <BlogPostCard key={post._id || post.id} post={post} />
+            filteredPosts.map((post, idx) => (
+              <div key={post._id || post.id} className={`animate-fade-in stagger-${(idx % 4) + 1}`}>
+                <BlogPostCard post={post} />
+              </div>
             ))
           ) : (
             <div className="no-posts-card glass-card">
@@ -204,54 +324,6 @@ function HomePage() {
               </button>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Popular Destinations Showcase */}
-      <section className="destinations-showcase-section container">
-        <div className="section-header">
-          <div className="badge badge-emerald">
-            <i className="fa-solid fa-earth-americas"></i> Trending Hotspots
-          </div>
-          <h2>Top Global Destinations</h2>
-        </div>
-
-        <div className="destinations-grid">
-          <div className="destination-card-highlight glass-card">
-            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Kyoto Japan" />
-            <div className="dest-overlay">
-              <span className="badge badge-amber">Asia</span>
-              <h3>Kyoto, Japan</h3>
-              <p>Ancient temples, bamboo groves & culinary marvels.</p>
-              <Link to="/destinations" className="dest-link">
-                Explore Destination <i className="fa-solid fa-chevron-right"></i>
-              </Link>
-            </div>
-          </div>
-
-          <div className="destination-card-highlight glass-card">
-            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Cinque Terre Italy" />
-            <div className="dest-overlay">
-              <span className="badge badge-purple">Europe</span>
-              <h3>Cinque Terre, Italy</h3>
-              <p>Colorful coastal villages along cliffside Mediterranean seas.</p>
-              <Link to="/destinations" className="dest-link">
-                Explore Destination <i className="fa-solid fa-chevron-right"></i>
-              </Link>
-            </div>
-          </div>
-
-          <div className="destination-card-highlight glass-card">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Maldives" />
-            <div className="dest-overlay">
-              <span className="badge badge-emerald">Tropical</span>
-              <h3>Baa Atoll, Maldives</h3>
-              <p>Crystal turquoise lagoons, overwater villas & coral reefs.</p>
-              <Link to="/destinations" className="dest-link">
-                Explore Destination <i className="fa-solid fa-chevron-right"></i>
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 

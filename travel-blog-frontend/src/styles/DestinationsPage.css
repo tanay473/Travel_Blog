@@ -1,67 +1,81 @@
-/* src/styles/DestinationsPage.css */
+/* src/styles/DestinationsPage.css - Bento Grid Destination Architecture */
 
 .destinations-page {
-  padding: 40px 0 80px;
+  padding: 60px 0 90px;
 }
 
-.destinations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 36px;
+.destinations-bento-grid {
+  margin-top: 40px;
 }
 
-.destination-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.dest-image-box {
+.destination-bento-item {
+  height: 360px;
   position: relative;
-  height: 220px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  text-decoration: none;
 }
 
-.dest-image-box img {
+.dest-bento-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.dest-bento-image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.destination-card:hover .dest-image-box img {
+.destination-bento-item:hover .dest-bento-image-wrapper img {
   transform: scale(1.08);
 }
 
-.dest-badge {
+.dest-bento-overlay {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 2;
-}
-
-.dest-card-content {
-  padding: 24px;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 24, 21, 0.1) 0%, rgba(26, 24, 21, 0.88) 90%);
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: #ffffff;
 }
 
-.dest-card-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.dest-bento-overlay h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 6px;
 }
 
-.dest-desc {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  flex: 1;
+.dest-bento-overlay p {
+  font-size: 0.94rem;
+  color: #f3ede2;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+.bento-explore-btn {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f59e0b;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+}
+
+.destination-bento-item:hover .bento-explore-btn {
+  transform: translateX(6px);
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
-  .destinations-grid {
-    grid-template-columns: 1fr;
+  .destination-bento-item {
+    height: 300px;
   }
 }
