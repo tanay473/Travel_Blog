@@ -224,9 +224,6 @@ function SingleBlogPostPage() {
               <i className="fa-solid fa-location-dot"></i> {post.destination}
             </span>
           )}
-          <span className="badge badge-amber" title="GPS EXIF Metadata Verified">
-            📸 Proof of Travel Verified
-          </span>
           <span className="reading-time">
             <i className="fa-regular fa-clock"></i> {post.readingTime || 4} min read
           </span>
@@ -234,7 +231,7 @@ function SingleBlogPostPage() {
 
         <h1 className="article-title">{post.title}</h1>
 
-        <div className="author-bar">
+        <div className="author-bar" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px'}}>
           <div className="author-info">
             <div className="avatar"><i className="fa-solid fa-user-astronaut"></i></div>
             <div>
@@ -260,6 +257,10 @@ function SingleBlogPostPage() {
               </div>
             </div>
           </div>
+
+          <span className="badge badge-amber" style={{fontSize: '0.85rem', padding: '6px 14px'}} title="GPS EXIF Metadata Verified">
+            📸 Proof of Travel Verified
+          </span>
 
           <div className="article-actions">
             <button className={`action-btn ${liked ? 'liked' : ''}`} onClick={handleLike}>

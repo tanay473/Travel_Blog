@@ -13,16 +13,12 @@ function BlogPostCard({ post }) {
         <img src={post.imageUrl || fallbackImage} alt={post.title} loading="lazy" />
         <div className="card-badges">
           <span className="badge badge-emerald">{post.category || 'Adventure'}</span>
-          <span className="badge badge-amber" style={{fontSize: '0.72rem'}} title="EXIF Metadata Verified">
-            📸 Proof Verified
-          </span>
           {post.readingTime && (
             <span className="reading-time-badge">
               <i className="fa-regular fa-clock"></i> {post.readingTime} min read
             </span>
           )}
         </div>
-
       </div>
 
       <div className="card-content">
@@ -56,12 +52,17 @@ function BlogPostCard({ post }) {
           )}
         </div>
 
-        <div className="card-footer">
+        <div className="card-footer" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '1rem'}}>
           <Link to={`/blog/${post._id || post.id}`} className="btn btn-primary btn-small">
             Read Story <i className="fa-solid fa-arrow-right"></i>
           </Link>
-          <div className="views-count">
-            <i className="fa-regular fa-eye"></i> {post.views || 12}
+          <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+            <span className="badge badge-amber" style={{fontSize: '0.72rem', margin: 0, padding: '3px 8px'}} title="EXIF GPS Metadata Verified">
+              📸 Proof Verified
+            </span>
+            <div className="views-count">
+              <i className="fa-regular fa-eye"></i> {post.views || 12}
+            </div>
           </div>
         </div>
       </div>
