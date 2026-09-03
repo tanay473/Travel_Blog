@@ -210,8 +210,19 @@ function SingleBlogPostPage() {
             <div>
               <div className="author-name">{post.author || 'Explorer'}</div>
               {post.authorContact && (
-                <div className="author-contact" style={{fontSize: '0.85rem', color: '#64748b'}}>
-                  <i className="fa-regular fa-envelope"></i> {post.authorContact}
+                <div className="author-contact" style={{fontSize: '0.85rem', color: '#64748b', display: 'flex', gap: '12px', marginTop: '2px'}}>
+                  {typeof post.authorContact === 'object' ? (
+                    <>
+                      {post.authorContact.email && (
+                        <span><i className="fa-regular fa-envelope"></i> {post.authorContact.email}</span>
+                      )}
+                      {post.authorContact.social && (
+                        <span><i className="fa-brands fa-x-twitter"></i> {post.authorContact.social}</span>
+                      )}
+                    </>
+                  ) : (
+                    <span><i className="fa-regular fa-envelope"></i> {String(post.authorContact)}</span>
+                  )}
                 </div>
               )}
               <div className="post-date">
