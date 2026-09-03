@@ -1,6 +1,5 @@
 # ⛵ Vignette Voyages
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![React](https://img.shields.io/badge/Frontend-React_18-61DAFB?logo=react)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js_/_Express-339933?logo=nodedotjs)](https://nodejs.org/)
 [![Gemini AI](https://img.shields.io/badge/AI-Google_Gemini-8E75B2?logo=google)](https://deepmind.google/technologies/gemini/)
@@ -99,6 +98,3 @@ npm start
 | `/api/posts/:id/report` | `POST` | Submit a report for content moderation review |
 
 ---
-
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).
