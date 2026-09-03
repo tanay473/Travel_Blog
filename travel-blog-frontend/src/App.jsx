@@ -7,6 +7,7 @@ import HomePage from './Pages/HomePage';
 import BlogPostsPage from './Pages/BlogPostsPage';
 import SingleBlogPostPage from './Pages/SingleBlogPostPage';
 import DestinationsPage from './Pages/DestinationsPage';
+import DestinationCommunityPage from './Pages/DestinationCommunityPage';
 import AboutPage from './Pages/AboutPage';
 import ContactPage from './Pages/ContactPage';
 import CreatePostPage from './Pages/CreatePostPage';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/blog" element={<BlogPostsPage />} />
             <Route path="/blog/:id" element={<SingleBlogPostPage />} />
             <Route path="/destinations" element={<DestinationsPage />} />
+            <Route path="/destinations/:destination" element={<DestinationCommunityPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/create-post" element={<CreatePostPage />} />

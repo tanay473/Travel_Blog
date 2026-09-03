@@ -18,7 +18,23 @@ const blogPostSchema = new mongoose.Schema({
   readingTime: { type: Number, default: 4 }, // Estimated read time in minutes
   views: { type: Number, default: 0 },
   likes: { type: Number, default: 0 },
-  nlpProcessed: { type: Boolean, default: false }
+  nlpProcessed: { type: Boolean, default: false },
+  
+  // Destination Communities & Experience Ranking
+  experienceType: { type: String, enum: ['Cuisine', 'Stay', 'Nature', 'General'], default: 'General' },
+  uniqueFeatures: [String],
+  
+  // User Ethics & Moderation
+  authorContact: { 
+    email: String, 
+    social: String 
+  },
+  reports: [{
+    reportedBy: String,
+    reason: String,
+    date: { type: Date, default: Date.now }
+  }],
+  isFlagged: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Post', blogPostSchema);

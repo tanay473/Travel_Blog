@@ -49,12 +49,25 @@ function generateFallbackMetadata(title, excerpt = '', content = '') {
   const wordCount = combinedText.split(/\s+/).length;
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
+  // Heuristic for experienceType
+  let experienceType = 'General';
+  if (/food|dining|restaurant|cuisine|eat|taste|meal/i.test(combinedText)) experienceType = 'Cuisine';
+  else if (/hotel|resort|hostel|stay|villa|accommodation/i.test(combinedText)) experienceType = 'Stay';
+  else if (/nature|mountain|lake|river|forest|hike|park/i.test(combinedText)) experienceType = 'Nature';
+
+  // Heuristic for uniqueFeatures
+  const uniqueFeatures = [];
+  if (combinedText.includes('waterfall')) uniqueFeatures.push('Secret Waterfall');
+  if (combinedText.includes('tea')) uniqueFeatures.push('Historic Tea House');
+
   return {
     nlpTags: Array.from(new Set(nlpTags)),
     seoKeywords: Array.from(new Set(seoKeywords)),
     category,
     metaDescription,
-    readingTime
+    readingTime,
+    experienceType,
+    uniqueFeatures
   };
 }
 
@@ -85,7 +98,9 @@ Return ONLY a raw JSON object (no markdown formatting, no code block backticks) 
   "seoKeywords": ["6-10 search query keywords/phrases e.g. best hiking trails in switzerland, budget europe travel 2026"],
   "category": "One overarching travel category (e.g. Adventure, Culture & Heritage, Beach & Coastal, Luxury & Wellness, Road Trip, Food & Culinary, Budget Backpacking)",
   "metaDescription": "A compelling 1-2 sentence search snippet (max 155 characters) packed with target keywords",
-  "readingTime": integer read time in minutes
+  "readingTime": integer read time in minutes,
+  "experienceType": "One of 'Cuisine', 'Stay', 'Nature', 'General'",
+  "uniqueFeatures": ["1-3 unique/famous/popular spots mentioned in the post"]
 }
 `;
 
@@ -102,7 +117,9 @@ Return ONLY a raw JSON object (no markdown formatting, no code block backticks) 
       seoKeywords: Array.isArray(parsedData.seoKeywords) ? parsedData.seoKeywords : ['travel guide'],
       category: parsedData.category || 'Adventure',
       metaDescription: parsedData.metaDescription || excerpt || title,
-      readingTime: parsedData.readingTime || Math.max(1, Math.ceil((content.length + title.length) / 800))
+      readingTime: parsedData.readingTime || Math.max(1, Math.ceil((content.length + title.length) / 800)),
+      experienceType: parsedData.experienceType || 'General',
+      uniqueFeatures: Array.isArray(parsedData.uniqueFeatures) ? parsedData.uniqueFeatures : []
     };
   } catch (error) {
     console.error('[GeminiService] Error calling Gemini API:', error.message);

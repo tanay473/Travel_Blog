@@ -13,6 +13,9 @@ router.get('/posts/tag/:tag', postController.getPostsByTag);
 // POST preview Gemini NLP tags before submitting a post
 router.post('/posts/nlp-preview', postController.previewNlpTags);
 
+// Experience Ranking
+router.get('/posts/experience-ranked', postController.getExperienceRanked);
+
 // GET single post by ID
 router.get('/posts/:id', postController.getPostById);
 
@@ -27,5 +30,12 @@ router.post('/posts/:id/generate-tags', postController.generatePostTags);
 
 // DELETE post
 router.delete('/posts/:id', postController.deletePost);
+
+// Destination Communities
+router.get('/destinations/:destination/community', postController.getDestinationCommunity);
+
+// User Ethics & Moderation
+router.post('/posts/:id/report', postController.reportPost);
+router.post('/users/:userId/ban', postController.banUser);
 
 module.exports = router;

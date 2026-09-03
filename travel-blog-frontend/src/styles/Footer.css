@@ -1,8 +1,8 @@
 /* src/styles/Footer.css */
 
 .footer {
-  background: rgba(9, 13, 22, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-primary);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 60px 0 30px;
 }
 
@@ -24,7 +24,7 @@
 .footer-links-group h4,
 .footer-social h4 {
   font-size: 1rem;
-  color: #ffffff;
+  color: var(--color-text-main);
   margin-bottom: 16px;
   font-weight: 700;
 }
@@ -68,13 +68,13 @@
 
 .social-icons a:hover {
   background: var(--accent-emerald);
-  color: #04121e;
+  color: #ffffff;
   transform: translateY(-3px);
 }
 
 .footer-bottom {
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   text-align: center;
   font-size: 0.85rem;
   color: var(--color-text-dim);

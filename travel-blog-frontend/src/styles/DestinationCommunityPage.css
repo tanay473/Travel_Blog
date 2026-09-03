@@ -1,0 +1,231 @@
+/* src/styles/DestinationCommunityPage.css */
+
+/* Light Theme Styling */
+.destination-community-page {
+  padding: 40px 0 80px;
+  background-color: #fafbfd;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+.text-emerald {
+  color: #059669;
+}
+
+.text-muted {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+/* Hero Section */
+.community-hero {
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Highlights Section */
+.highlights-section {
+  margin-bottom: 48px;
+}
+
+.highlights-section h2 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.highlights-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.highlights-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.highlights-carousel::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+
+.highlight-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: max-content;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: #059669;
+}
+
+.highlight-icon {
+  color: #0891b2; /* cyan accent */
+  font-size: 1.2rem;
+}
+
+.highlight-text {
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Experience Filters */
+.experience-filters {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-bar {
+  display: flex;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.filter-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.filter-btn.active.filter-cuisine {
+  background: #d97706; /* amber */
+}
+
+.filter-btn.active.filter-stay {
+  background: #7c3aed; /* purple */
+}
+
+.filter-btn.active.filter-nature {
+  background: #059669; /* emerald */
+}
+
+/* Ranked Posts Grid */
+.ranked-posts-section {
+  margin-bottom: 60px;
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.filter-loading {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.empty-state, .error-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px dashed #cbd5e1;
+  color: #64748b;
+}
+
+/* Ensure BlogPostCard displays correctly in light theme */
+.destination-community-page .blog-post-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.destination-community-page .blog-post-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.destination-community-page .card-content {
+  background: transparent;
+}
+
+.destination-community-page .card-title a {
+  color: #0f172a;
+}
+
+.destination-community-page .card-excerpt {
+  color: #475569;
+}
+
+.destination-community-page .post-meta {
+  color: #64748b;
+}

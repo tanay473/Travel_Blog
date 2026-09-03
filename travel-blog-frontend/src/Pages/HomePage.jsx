@@ -111,13 +111,13 @@ function HomePage() {
 
         <div className="container hero-content animate-fade-in">
           <div className="hero-pill-badge">
-            <i className="fa-solid fa-wand-magic-sparkles"></i> AI-Powered Travel Index
+            <i className="fa-solid fa-wand-magic-sparkles"></i> Smart Travel Discovery
           </div>
           <h1 className="hero-title">
-            Explore the World via <span className="gradient-text">Semantic NLP</span> Tags
+            Discover Your Next <span className="gradient-text">Great Adventure</span>
           </h1>
           <p className="hero-subtitle">
-            Curated travel stories auto-tagged with Gemini 2.5 Flash AI for maximum crawler visibility, search precision, and wanderlust inspiration.
+            Real stories from real travelers. Browse curated adventures, hidden gems, and local tips — intelligently organized so you find exactly what inspires you.
           </p>
 
           {/* Interactive Live Search Bar */}
@@ -125,7 +125,7 @@ function HomePage() {
             <i className="fa-solid fa-magnifying-glass search-icon"></i>
             <input 
               type="text" 
-              placeholder="Search destinations, topics, or AI tags (e.g. Kyoto, Alpine, Beach)..."
+              placeholder="Where do you want to go? Try Kyoto, Alpine, Beach..."
               value={searchQuery}
               onChange={handleSearchChange}
               className="search-input"
@@ -152,10 +152,10 @@ function HomePage() {
       <section className="nlp-tag-cloud-section container">
         <div className="section-header">
           <div className="badge badge-purple">
-            <i className="fa-solid fa-brain"></i> Gemini 2.5 Flash NLP
+            <i className="fa-solid fa-compass"></i> Explore by Interest
           </div>
-          <h2>Popular Semantic Categories</h2>
-          <p className="section-subtitle">Click any AI-extracted tag to filter stories live:</p>
+          <h2>Popular Travel Categories</h2>
+          <p className="section-subtitle">Tap a category to find stories that match your travel style:</p>
         </div>
 
         <div className="tag-cloud">
@@ -198,7 +198,7 @@ function HomePage() {
             <div className="no-posts-card glass-card">
               <i className="fa-solid fa-compass-drafting no-posts-icon"></i>
               <h3>No stories match your filter</h3>
-              <p>Try searching for a different keyword or select another NLP tag above.</p>
+              <p>Try searching for a different keyword or select another category above.</p>
               <button className="btn btn-primary btn-small" onClick={() => handleTagFilter('All')}>
                 Reset Filters
               </button>

@@ -30,7 +30,7 @@ function CreatePostPage() {
 
   const handlePreviewNlpTags = async () => {
     if (!formData.title) {
-      setError('Please provide a title first to generate Gemini AI tags.');
+      setError('Please provide a title first to generate AI tags.');
       return;
     }
     setError(null);
@@ -51,7 +51,7 @@ function CreatePostPage() {
       }
     } catch (err) {
       console.error('Failed to preview AI tags:', err);
-      setError('Failed to generate Gemini AI tags. Ensure title and content are entered.');
+      setError('Failed to generate AI tags. Ensure title and content are entered.');
     } finally {
       setPreviewing(false);
     }
@@ -95,12 +95,9 @@ function CreatePostPage() {
   return (
     <div className="create-post-page container animate-fade-in">
       <div className="page-header text-center">
-        <div className="badge badge-purple">
-          <i className="fa-solid fa-sparkles"></i> Gemini 2.5 Flash Enabled
-        </div>
         <h1>Publish New Travel Adventure</h1>
         <p className="subtitle">
-          Write your story below. Posts are automatically analyzed & tagged with Gemini AI for search engine crawler visibility!
+          Share your travel experience below. We'll automatically discover the best tags and keywords for your story!
         </p>
       </div>
 
@@ -145,7 +142,7 @@ function CreatePostPage() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="category"><i className="fa-solid fa-list"></i> Category Niche</label>
+              <label htmlFor="category"><i className="fa-solid fa-list"></i> Category</label>
               <select id="category" name="category" value={formData.category} onChange={handleChange}>
                 <option value="Adventure">Adventure & Hiking</option>
                 <option value="Coastal & Islands">Coastal & Islands</option>
@@ -204,7 +201,7 @@ function CreatePostPage() {
                   disabled={previewing}
                 >
                   <i className={`fa-solid fa-wand-magic-sparkles ${previewing ? 'fa-spin' : ''}`}></i>
-                  {previewing ? 'Analyzing...' : 'Auto-Tag with Gemini AI'}
+                  {previewing ? 'Finding tags...' : 'Suggest Tags'}
                 </button>
               </div>
               <input 
@@ -221,9 +218,9 @@ function CreatePostPage() {
           {/* Gemini AI Preview Box */}
           {nlpPreview && (
             <div className="nlp-preview-box">
-              <h4><i className="fa-solid fa-brain"></i> Gemini AI Extraction Result:</h4>
+              <h4><i className="fa-solid fa-brain"></i> Suggested Tags & Summary:</h4>
               <div className="preview-tags">
-                <strong>Extracted NLP Tags:</strong>
+                <strong>Discovered Tags:</strong>
                 <div className="tags-flex">
                   {nlpPreview.nlpTags?.map((t, i) => (
                     <span key={i} className="tag-pill nlp-tag-pill">#{t}</span>
@@ -232,14 +229,14 @@ function CreatePostPage() {
               </div>
               {nlpPreview.metaDescription && (
                 <div className="preview-meta">
-                  <strong>Meta Description Snippet:</strong> "{nlpPreview.metaDescription}"
+                  <strong>Summary Preview:</strong> "{nlpPreview.metaDescription}"
                 </div>
               )}
             </div>
           )}
 
           {error && <div className="error-message">{error}</div>}
-          {success && <div className="success-message">🎉 Story published successfully! Auto-tagged with Gemini AI.</div>}
+          {success && <div className="success-message">🎉 Story published successfully! Tags have been generated automatically.</div>}
 
           <div className="form-actions">
             <button type="submit" className="btn btn-primary" disabled={loading}>

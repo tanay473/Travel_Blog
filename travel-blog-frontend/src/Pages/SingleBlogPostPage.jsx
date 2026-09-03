@@ -15,6 +15,9 @@ function SingleBlogPostPage() {
   const [toastMessage, setToastMessage] = useState('');
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [reportReason, setReportReason] = useState('');
+  const [isReporting, setIsReporting] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -87,10 +90,10 @@ function SingleBlogPostPage() {
       setRetagging(true);
       const res = await blogApi.generateTagsForPost(id);
       setPost(res.post);
-      showToast('✨ Gemini AI tags refreshed successfully!');
+      showToast('✨ AI tags refreshed successfully!');
     } catch (err) {
       console.error('Failed to regenerate tags:', err);
-      showToast('Error regenerating Gemini AI tags.');
+      showToast('Error regenerating AI tags.');
     } finally {
       setRetagging(false);
     }
@@ -106,6 +109,21 @@ function SingleBlogPostPage() {
       setLiked(true);
       setLikeCount(prev => prev + 1);
       showToast('❤️ Thanks for loving this adventure!');
+    }
+  };
+
+  const handleReportSubmit = async () => {
+    if (!reportReason.trim()) return;
+    try {
+      setIsReporting(true);
+      await blogApi.reportPost(id, { reportedBy: 'anonymous', reason: reportReason });
+      showToast('🚩 Post reported successfully.');
+      setShowReportModal(false);
+      setReportReason('');
+    } catch (error) {
+      showToast('Error reporting post.');
+    } finally {
+      setIsReporting(false);
     }
   };
 
@@ -142,6 +160,29 @@ function SingleBlogPostPage() {
         </div>
       )}
 
+      {/* Report Modal */}
+      {showReportModal && (
+        <div className="report-modal-overlay">
+          <div className="report-modal glass-card">
+            <h3>Report Post</h3>
+            <p>Please provide a reason for reporting this post:</p>
+            <textarea
+              value={reportReason}
+              onChange={(e) => setReportReason(e.target.value)}
+              placeholder="Reason for report..."
+              rows="4"
+              className="report-textarea"
+            />
+            <div className="report-modal-actions">
+              <button className="btn btn-secondary" onClick={() => setShowReportModal(false)}>Cancel</button>
+              <button className="btn btn-primary" onClick={handleReportSubmit} disabled={isReporting}>
+                {isReporting ? 'Submitting...' : 'Submit Report'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Back Button */}
       <button onClick={() => navigate('/blog')} className="btn btn-glass btn-small back-nav-btn">
         <i className="fa-solid fa-arrow-left"></i> Back to Blog
@@ -168,6 +209,11 @@ function SingleBlogPostPage() {
             <div className="avatar"><i className="fa-solid fa-user-astronaut"></i></div>
             <div>
               <div className="author-name">{post.author || 'Explorer'}</div>
+              {post.authorContact && (
+                <div className="author-contact" style={{fontSize: '0.85rem', color: '#64748b'}}>
+                  <i className="fa-regular fa-envelope"></i> {post.authorContact}
+                </div>
+              )}
               <div className="post-date">
                 Published {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
               </div>
@@ -180,6 +226,9 @@ function SingleBlogPostPage() {
             </button>
             <button className="action-btn" onClick={handleShare}>
               <i className="fa-solid fa-share-nodes"></i> Share
+            </button>
+            <button className="action-btn report-btn" onClick={() => setShowReportModal(true)} style={{color: '#ef4444'}}>
+              🚩 Report
             </button>
           </div>
         </div>
@@ -200,28 +249,38 @@ function SingleBlogPostPage() {
         <main className="article-content">
           <p className="article-excerpt-lead">{post.excerpt}</p>
           
+          {post.uniqueFeatures && post.uniqueFeatures.length > 0 && (
+            <div className="unique-features-chips" style={{marginBottom: '1.5rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap'}}>
+              {post.uniqueFeatures.map((feat, i) => (
+                <span key={i} className="badge badge-emerald" style={{backgroundColor: '#ecfdf5', color: '#059669', border: '1px solid #a7f3d0'}}>
+                  ✨ {feat}
+                </span>
+              ))}
+            </div>
+          )}
+
           <div 
             className="prose-content" 
             dangerouslySetInnerHTML={{ __html: post.content }} 
           />
         </main>
 
-        {/* Sidebar with Gemini NLP AI Metadata & SEO Information */}
+        {/* Sidebar with Story Insights */}
         <aside className="article-sidebar">
-          {/* Gemini AI NLP Metadata Box */}
+          {/* Story Insights Box */}
           <div className="sidebar-card glass-card nlp-sidebar-card">
             <div className="card-header-flex">
-              <h3><i className="fa-solid fa-wand-magic-sparkles gradient-icon"></i> Gemini AI Metadata</h3>
-              <span className="badge badge-emerald">Live NLP</span>
+              <h3><i className="fa-solid fa-wand-magic-sparkles gradient-icon"></i> Story Insights</h3>
+              <span className="badge badge-emerald">Smart</span>
             </div>
 
             <p className="sidebar-desc">
-              AI-analyzed concepts & SEO terms embedded in this post for maximum search engine index relevance:
+              Key themes and topics discovered in this story to help you find related adventures:
             </p>
 
-            {/* NLP Semantic Tags */}
+            {/* Related Topics */}
             <div className="meta-group">
-              <label><i className="fa-solid fa-tags"></i> Semantic NLP Tags:</label>
+              <label><i className="fa-solid fa-tags"></i> Related Topics:</label>
               <div className="tags-flex">
                 {(post.nlpTags || post.tags || ['Travel']).map((tag, i) => (
                   <Link key={i} to={`/blog?tag=${encodeURIComponent(tag)}`} className="tag-pill nlp-tag-pill">
@@ -234,7 +293,7 @@ function SingleBlogPostPage() {
             {/* SEO Keywords for Crawlers */}
             {post.seoKeywords && post.seoKeywords.length > 0 && (
               <div className="meta-group">
-                <label><i className="fa-solid fa-magnifying-glass"></i> Search Crawler Keywords:</label>
+                <label><i className="fa-solid fa-magnifying-glass"></i> Search Keywords:</label>
                 <ul className="seo-keywords-list">
                   {post.seoKeywords.map((kw, i) => (
                     <li key={i}><i className="fa-solid fa-check"></i> {kw}</li>
@@ -246,7 +305,7 @@ function SingleBlogPostPage() {
             {/* Meta Description Preview */}
             {post.metaDescription && (
               <div className="meta-group">
-                <label><i className="fa-solid fa-code"></i> Meta Snippet (Schema.org):</label>
+                <label><i className="fa-solid fa-code"></i> Summary Snippet:</label>
                 <blockquote className="meta-snippet-box">
                   "{post.metaDescription}"
                 </blockquote>
@@ -259,7 +318,7 @@ function SingleBlogPostPage() {
               disabled={retagging}
             >
               <i className={`fa-solid fa-arrows-rotate ${retagging ? 'fa-spin' : ''}`}></i>
-              {retagging ? 'Analyzing with Gemini...' : 'Re-tag with Gemini AI'}
+              {retagging ? 'Refreshing...' : 'Refresh Insights'}
             </button>
           </div>
         </aside>

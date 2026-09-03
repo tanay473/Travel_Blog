@@ -28,7 +28,7 @@ function AboutPage() {
       <div className="about-grid">
         <div className="about-text-card glass-card">
           <h3><i className="fa-solid fa-compass gradient-icon"></i> Who We Are</h3>
-          <p>Welcome to Wanderlust, a next-generation travel platform built for modern adventurers. We combine personal storytelling with Gemini AI semantic NLP indexing so your travel searches find the most relevant, high-value recommendations.</p>
+          <p>Welcome to Wanderlust, a next-generation travel platform built for modern adventurers. We combine personal storytelling with AI semantic NLP indexing so your travel searches find the most relevant, high-value recommendations.</p>
           <p>Our journey began with a single backpack and a passion to explore hidden alpine trails, coastal retreats, and vibrant cultural hubs. Today, our community publishes authentic travel stories read by thousands worldwide.</p>
         </div>
 

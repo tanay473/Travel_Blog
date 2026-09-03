@@ -83,6 +83,28 @@ const blogApi = {
       console.error(`Error deleting post with ID ${id}:`, error.response ? error.response.data : error.message);
       throw error;
     }
+  },
+
+  getDestinationCommunity: async (destination) => {
+    const res = await fetch(`${API_BASE_URL}/destinations/${encodeURIComponent(destination)}/community`);
+    return res.json();
+  },
+
+  getExperienceRanked: async (experienceType, destination) => {
+    const params = new URLSearchParams();
+    if (experienceType) params.set('experienceType', experienceType);
+    if (destination) params.set('destination', destination);
+    const res = await fetch(`${API_BASE_URL}/posts/experience-ranked?${params}`);
+    return res.json();
+  },
+
+  reportPost: async (postId, data) => {
+    const res = await fetch(`${API_BASE_URL}/posts/${postId}/report`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    return res.json();
   }
 };
 

@@ -40,6 +40,7 @@ const mockDestinations = [
 
 function DestinationsPage() {
   const [destinations, setDestinations] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -61,7 +62,7 @@ function DestinationsPage() {
 
       <div className="destinations-grid">
         {destinations.map(dest => (
-          <div key={dest.id} className="destination-card glass-card">
+          <Link to={`/destinations/${encodeURIComponent(dest.id)}`} key={dest.id} className="destination-card glass-card" style={{textDecoration: 'none', color: 'inherit'}}>
             <div className="dest-image-box">
               <img src={dest.image} alt={dest.name} loading="lazy" />
               <span className="badge badge-purple dest-badge">{dest.region}</span>
@@ -70,11 +71,11 @@ function DestinationsPage() {
             <div className="dest-card-content">
               <h3>{dest.name}</h3>
               <p className="dest-desc">{dest.excerpt}</p>
-              <Link to="/blog" className="btn btn-primary btn-small">
+              <div className="btn btn-primary btn-small">
                 View Destination Stories <i className="fa-solid fa-arrow-right"></i>
-              </Link>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

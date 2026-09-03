@@ -20,11 +20,6 @@ function BlogPostCard({ post }) {
           )}
         </div>
 
-        {post.nlpProcessed && (
-          <div className="ai-nlp-indicator" title="Tagged by Gemini 2.5 Flash API">
-            <i className="fa-solid fa-sparkles"></i> Gemini Tagged
-          </div>
-        )}
       </div>
 
       <div className="card-content">
@@ -46,7 +41,7 @@ function BlogPostCard({ post }) {
 
         <p className="card-excerpt">{post.excerpt}</p>
 
-        {/* Gemini NLP Tags Cloud */}
+        {/* AI NLP Tags Cloud */}
         <div className="card-tags-list">
           {displayTags.slice(0, 3).map((tag, idx) => (
             <span key={idx} className="tag-pill nlp-tag-pill">

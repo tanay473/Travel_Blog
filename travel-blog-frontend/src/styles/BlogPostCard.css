@@ -34,27 +34,27 @@
 }
 
 .reading-time-badge {
-  background: rgba(9, 13, 22, 0.75);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
   padding: 4px 10px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   color: var(--color-text-muted);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .ai-nlp-indicator {
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background: rgba(9, 13, 22, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 4px 10px;
   border-radius: var(--radius-full);
   font-size: 0.72rem;
   font-weight: 700;
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(8, 145, 178, 0.2);
 }
 
 .card-content {
@@ -83,7 +83,7 @@
 }
 
 .card-title a {
-  color: #ffffff;
+  color: var(--color-text-main);
 }
 
 .card-title a:hover {
@@ -123,7 +123,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .views-count {
