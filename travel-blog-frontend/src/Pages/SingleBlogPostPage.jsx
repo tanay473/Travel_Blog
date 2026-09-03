@@ -75,10 +75,10 @@ function SingleBlogPostPage() {
             'description': data.metaDescription || data.excerpt,
             'keywords': keywordsList.join(', ')
           });
-        if (data && data.expenseInsights) {
-          setExpenseInsights(data.expenseInsights);
+          if (data.expenseInsights) {
+            setExpenseInsights(data.expenseInsights);
+          }
         }
-
       } catch (err) {
         console.error("Error fetching blog post:", err);
         setError("Blog post not found or server is offline.");
