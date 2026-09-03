@@ -338,7 +338,7 @@ exports.getPostById = async (req, res) => {
 // Create a new post with Automatic Gemini API NLP Tagging
 exports.createPost = async (req, res) => {
   try {
-    const { title, author, imageUrl, excerpt, content, tags, destination, category } = req.body;
+    const { title, author, imageUrl, excerpt, content, tags, destination, category, experienceType } = req.body;
 
     const nlpData = await generateNlpMetadata(title, excerpt, content);
     const mergedTags = Array.from(new Set([...(tags || []), ...(nlpData.nlpTags || [])]));
@@ -357,8 +357,8 @@ exports.createPost = async (req, res) => {
       category: category || nlpData.category,
       metaDescription: nlpData.metaDescription,
       readingTime: nlpData.readingTime,
-      experienceType: nlpData.experienceType,
-      uniqueFeatures: nlpData.uniqueFeatures,
+      experienceType: experienceType || nlpData.experienceType || 'General',
+      uniqueFeatures: nlpData.uniqueFeatures || [],
       views: 1,
       likes: 0,
       nlpProcessed: true,

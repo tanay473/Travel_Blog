@@ -10,6 +10,7 @@ function CreatePostPage() {
     author: '',
     destination: '',
     category: 'Adventure',
+    experienceType: 'Nature',
     excerpt: '',
     content: '',
     imageUrl: '',
@@ -150,6 +151,16 @@ function CreatePostPage() {
                 <option value="Budget Backpacking">Budget Backpacking</option>
                 <option value="Luxury & Wellness">Luxury & Wellness</option>
                 <option value="Food & Culinary">Food & Culinary</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="experienceType"><i className="fa-solid fa-compass"></i> Experience Focus</label>
+              <select id="experienceType" name="experienceType" value={formData.experienceType} onChange={handleChange}>
+                <option value="Cuisine">🍱 Cuisine & Dining</option>
+                <option value="Stay">🏨 Stays & Resorts</option>
+                <option value="Nature">🏔️ Nature & Hiking</option>
+                <option value="General">🗺️ General Experience</option>
               </select>
             </div>
 
