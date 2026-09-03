@@ -1,53 +1,111 @@
-# ✈️ Vignette Voyages Travel Platform
+# ⛵ Vignette Voyages — Next-Gen Travel Platform
 
-A full-stack travel platform featuring **Destination Community Hubs**, **Experience Ranking** (Cuisine, Stay, Nature), **AI-Powered Story Tagging**, **User Ethics Moderation**, and a **Light Magazine Web Interface**.
-
----
-
-## ✨ Features
-
-- **🏝️ Destination Communities**: Dedicated community hubs for worldwide hotspots (Interlaken, Kyoto, Amalfi, Marrakech, Bali, Maldives, Santorini, Patagonia).
-- **🍱 Experience Ranking**: Filter and rank travel stories by experience focus (`Cuisine 🍱`, `Stay 🏨`, `Nature 🏔️`) sorted by community engagement (likes & views).
-- **📍 Unique Spot Highlights**: Smart extraction of iconic spots mentioned in stories (e.g. *"Lauterbrunnen 72 Waterfalls Valley"*, *"300-Year-Old Gion Tea House"*).
-- **🎨 Premium Light UI**: Clean, responsive layout with warm neutral tones, frosted-glass card styling, and video hero motion.
-- **🚩 User Ethics & Moderation**: Integrated post reporting system and account ban enforcement to protect community standards.
-- **🤖 Backend AI Tagging**: Express API integrated with `@google/genai` (Gemini Flash) with automatic in-memory fallback for local development.
+> **Vignette Voyages** is a modern, high-aesthetic travel publishing platform engineered with **iOS 18 Liquid Glassmorphism**, **Destination Community Hubs**, **Experience Specialty Ranking**, **Live Route Expense Analytics**, **User Ethics Moderation**, and **AI Semantic Tagging**.
 
 ---
 
-## 🏗️ System Architecture
+## 🌟 Executive Key Highlights
+
+### 1. 📊 Live Route Expense Comparisons & Community Math
+- **Author vs. Community Budget Bar**: Compare author route expenditure (e.g., `₹40,000`) directly against live community traveler averages (e.g., `₹33,000`).
+- **Anonymous 1-Click Spend Logger**: Readers can anonymously log what they actually spent on a route, instantly updating live community savings percentages and contributor statistics.
+
+### 2. 🏝️ Destination Community Hubs
+- **Hotspot Community Centers**: Dedicated community pages (`/destinations/:destination`) gathering localized travel logs, community discussions, and top-voted experience stories.
+- **Unique Spot Highlights**: Automatic extraction of iconic local highlights (e.g., *"300-Year-Old Gion Tea House"*, *"Hanifaru Bay Manta Rays"*, *"72 Waterfalls Valley"*).
+
+### 3. 🍱 Experience Specialty Ranking
+- Filter and rank travel stories across three distinct travel experience pillars:
+  - **🍱 Cuisine & Dining**: Street food crawls, market tasting tours, Kaiseki dinners, mountain chalets.
+  - **🏨 Stays & Resorts**: Glass-floor overwater villas, desert riads, private onsens, cliffside eco-lodges.
+  - **🏔️ Nature & Hiking**: Alpine glacier trails, northern lights, volcanic craters, turquoise lake canoeing.
+
+### 4. 🍏 iOS 18 Liquid Glassmorphic Aesthetic
+- **Sand & Warm Alabaster Palette**: Clean editorial canvas (`#fbf9f5` base, warm terracotta `#c2593f` & forest emerald `#137547` accents).
+- **Specular Glass Icons**: Squircle app icons with top specular lighting, inner drop shadows, and spring-physics hover micro-interactions (`backdrop-filter: blur(20px) saturate(180%)`).
+- **Immersive Video Hero Slider**: Interactive scene switcher with dynamic background motion.
+
+### 5. 🚩 User Ethics & Moderation System
+- Built-in post reporting dialog (`Report Ethics Violation`) and user ban enforcement system (`isBanned: true`), instantly suppressing unethical user content.
+
+### 6. 🤖 Automatic AI Story Tagging & SEO Microdata
+- Integrated with `@google/genai` (Gemini Flash) for automated extraction of semantic topic tags, search keywords, meta snippets, and Schema.org JSON-LD structured microdata.
+
+---
+
+## 🏗️ Technical Architecture
 
 ```
-Project Root/
-├── travel-blog-backend/     # Node.js & Express API Server (Port 5000)
-│   ├── server.js            # Entry point & CORS configuration
+Vignette Voyages Project/
+├── travel-blog-backend/             # Node.js & Express API Engine (Port 5000)
+│   ├── server.js                    # CORS setup & server bootstrapping
 │   └── src/
-│       ├── controllers/     # postController.js (Communities, Ranking, Moderation, Fallback)
-│       ├── models/          # Post.js & User.js Mongoose Schemas
-│       ├── routes/          # API Route endpoints (/api/destinations, /api/posts)
-│       └── services/        # geminiService.js (AI Tag & Highlight Extraction)
-└── travel-blog-frontend/    # React Single Page Application (Port 3000)
-    ├── src/Pages/           # DestinationCommunityPage, HomePage, SingleBlogPostPage
-    ├── src/styles/          # Light design system CSS files
-    └── src/api/             # blogApi.jsx client module
+│       ├── controllers/
+│       │   └── postController.js    # Expense Math, Communities, Ranking, Moderation, Fallback Store
+│       ├── models/
+│       │   ├── Post.js             # Mongoose schema (authorSpent, communityExpenses, experienceType)
+│       │   └── User.js             # User moderation schema (isBanned, banReason, reports)
+│       ├── routes/
+│       │   └── posts.js            # API endpoints (/api/posts, /api/destinations, /api/posts/:id/expenses)
+│       └── services/
+│           └── geminiService.js    # AI tagging & unique highlight extraction
+│
+└── travel-blog-frontend/            # React 18 Single Page Web Application (Port 3000)
+    ├── src/
+    │   ├── api/
+    │   │   └── blogApi.jsx          # Client HTTP service module
+    │   ├── Components/              # Header, Footer, BlogPostCard, Newsletter, LoadingSpinner
+    │   ├── Pages/
+    │   │   ├── HomePage.jsx                 # Video hero slider, Bento Grid, featured stories
+    │   │   ├── DestinationsPage.jsx         # Bento Grid destination directory
+    │   │   ├── DestinationCommunityPage.jsx # Destination community hub & experience filters
+    │   │   ├── SingleBlogPostPage.jsx       # Article reader, Live Expense Math Card, Report modal
+    │   │   ├── CreatePostPage.jsx           # Story publishing & experience selector
+    │   │   ├── BlogPostsPage.jsx            # Filterable story library
+    │   │   ├── AboutPage.jsx                # Platform story & brand mission
+    │   │   └── ContactPage.jsx              # Community contact portal
+    │   └── styles/                      # Sand/Alabaster theme & iOS 18 glass CSS system
 ```
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Quick Installation & Setup
 
-### 1. Backend Server
+### Prerequisites
+- **Node.js**: v16+
+- **npm**: v8+
+
+### 1. Start the Backend API Server
 ```bash
 cd travel-blog-backend
 npm install
 npm start
-# Runs on http://localhost:5000
 ```
+*The server will run on `http://localhost:5000`. If MongoDB is offline, it automatically operates with an in-memory fallback store populated with 18 sample stories.*
 
-### 2. Frontend Web Application
+### 2. Start the Frontend Web Application
 ```bash
 cd travel-blog-frontend
 npm install
 npm start
-# Runs on http://localhost:3000
 ```
+*The React application will open automatically at `http://localhost:3000`.*
+
+---
+
+## 🛠️ API Reference Summary
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/posts` | Fetch all stories (supports `?category=`, `?tag=`, `?search=`) |
+| `GET` | `/api/posts/:id` | Fetch single story with computed `expenseInsights` |
+| `POST` | `/api/posts/:id/expenses` | Anonymously log route spent amount & update community math |
+| `GET` | `/api/destinations/:destination/community` | Fetch destination hub stories, top experiences, and highlights |
+| `GET` | `/api/posts/experience-ranked` | Fetch stories ranked by experience type (`Cuisine`, `Stay`, `Nature`) |
+| `POST` | `/api/posts/:id/report` | Report a story for ethics review |
+| `POST` | `/api/users/:userId/ban` | Ban an unethical user and suppress their published content |
+
+---
+
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for more information.
