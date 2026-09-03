@@ -1,5 +1,5 @@
 // src/Pages/HomePage.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import BlogPostCard from '../Components/BlogPostCard';
 import NewsletterSignup from '../Components/NewsletterSignup';
@@ -25,6 +25,7 @@ function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -40,6 +41,11 @@ function HomePage() {
       }
     };
     fetchPosts();
+
+    // Ensure continuous motion video playback
+    if (videoRef.current) {
+      videoRef.current.play().catch(e => console.log('Autoplay handled:', e));
+    }
   }, []);
 
   const handleTagFilter = (tag) => {
@@ -88,16 +94,19 @@ function HomePage() {
       <section className="hero-section">
         <div className="video-background">
           <video 
+            ref={videoRef}
             autoPlay 
             loop 
             muted 
             playsInline 
-            poster="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=80"
+            crossOrigin="anonymous"
+            poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-drone-view-of-a-scenic-coastline-41539-large.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src="https://cdn.coverr.co/videos/coverr-drone-shot-of-the-sea-coast-5321/1080p.mp4" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-flying-over-mountains-5347/1080p.mp4" type="video/mp4" />
           </video>
           <div className="video-overlay"></div>
+          <div className="animated-motion-waves"></div>
         </div>
 
         <div className="container hero-content animate-fade-in">

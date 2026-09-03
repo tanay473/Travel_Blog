@@ -12,9 +12,6 @@ function Header() {
         <Link to="/" className="logo">
           <span className="logo-icon"><i className="fa-solid fa-compass"></i></span>
           <span className="logo-text">Wanderlust<span className="logo-dot">.</span></span>
-          <span className="ai-badge" title="Gemini 2.5 Flash Auto-NLP Tagging Active">
-            <i className="fa-solid fa-sparkles"></i> AI Tagged
-          </span>
         </Link>
 
         <button 
