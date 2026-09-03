@@ -1,26 +1,18 @@
+/* src/styles/BlogPostsPage.css */
+
 .blog-posts-page {
-  padding: 40px 0;
-  text-align: center;
+  padding: 40px 0 80px;
 }
 
-.blog-posts-page h2 {
-  font-size: 2.5em;
-  margin-bottom: 40px;
-  color: #005662; /* Deep Teal */
-}
-
-.posts-list-grid { /* Consistent class name with HomePage */
+.blog-posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 30px;
+  margin-top: 36px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .blog-posts-page h2 {
-    font-size: 2em;
-  }
-  .posts-list-grid {
+  .blog-posts-grid {
     grid-template-columns: 1fr;
   }
 }

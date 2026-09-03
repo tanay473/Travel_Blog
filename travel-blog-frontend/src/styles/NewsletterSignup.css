@@ -1,68 +1,94 @@
+/* src/styles/NewsletterSignup.css */
+
 .newsletter-signup-section {
-  background-color: #E0F2F7; /* Light Teal */
-  padding: 60px 20px;
+  padding: 40px 0 80px;
+}
+
+.newsletter-card {
+  padding: 50px 30px;
   text-align: center;
-  margin: 60px 0;
+  max-width: 860px;
+  margin: 0 auto;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(9, 13, 22, 0.95) 100%);
 }
 
-.newsletter-signup-section h2 {
-  font-size: 2.2em;
-  color: #005662;
-  margin-bottom: 15px;
+.newsletter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent-purple);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
-.newsletter-signup-section p {
-  font-size: 1.1em;
-  color: #444;
-  margin-bottom: 30px;
+.newsletter-card h2 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.newsletter-card p {
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto 32px;
+  font-size: 1.05rem;
 }
 
 .newsletter-form {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  max-width: 600px;
+  gap: 12px;
+  max-width: 580px;
   margin: 0 auto;
 }
 
-.newsletter-form input[type="email"] {
-  flex-grow: 1;
-  padding: 12px 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
+.input-group {
+  position: relative;
+  flex: 1;
+}
+
+.mail-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-dim);
+}
+
+.newsletter-form input {
+  width: 100%;
+  padding: 14px 20px 14px 48px;
+  background: rgba(9, 13, 22, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  font-size: 0.95rem;
   outline: none;
+  transition: all 0.25s ease;
 }
 
-.newsletter-form button {
-  padding: 12px 25px;
-  background-color: #FF8C00; /* Sunset Orange */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
-
-.newsletter-form button:hover {
-  background-color: #E67E00;
+.newsletter-form input:focus {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
 }
 
 .signup-message {
   margin-top: 20px;
-  color: #007BFF; /* A pleasant blue for messages */
-  font-weight: bold;
+  color: var(--accent-emerald);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
   .newsletter-form {
     flex-direction: column;
-    gap: 10px;
   }
-  .newsletter-form button {
-    width: 100%;
+  .newsletter-form input {
+    border-radius: var(--radius-sm);
   }
 }

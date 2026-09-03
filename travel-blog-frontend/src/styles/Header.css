@@ -1,130 +1,151 @@
 /* src/styles/Header.css */
 
 .header {
-  background-color: #ffffff; /* Clean white background */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
-  padding: 15px 0; /* Vertical padding */
-  position: sticky; /* Makes header stick to the top when scrolling */
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Ensures header stays on top of other content */
+  z-index: 100;
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 0;
+  transition: all 0.3s ease;
 }
 
 .header-content {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Distribute items with space between them */
-  align-items: center; /* Vertically align items in the center */
-  max-width: 1200px; /* Max width for content, adjust as needed */
-  margin: 0 auto; /* Center the content horizontally */
-  padding: 0 20px; /* Horizontal padding for smaller screens */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  font-size: 2em; /* Larger font size for the logo */
-  font-weight: bold;
-  color: #005662; /* Teal/dark green color for logo */
-  text-decoration: none; /* Remove underline from link */
-  letter-spacing: -0.5px; /* Slightly tighter letter spacing */
-  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
 }
 
-.logo:hover {
-  color: #FF8C00; /* Sunset Orange on hover */
+.logo-icon {
+  font-size: 1.6rem;
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(45deg) scale(1.1);
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.logo-dot {
+  color: var(--accent-emerald);
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .main-nav ul {
-  list-style: none; /* Remove bullet points from list */
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
   margin: 0;
   padding: 0;
-  display: flex; /* Flexbox for horizontal navigation links */
-  gap: 30px; /* Space between navigation items */
 }
 
-.main-nav li a {
-  text-decoration: none; /* Remove underline from nav links */
-  color: #333; /* Dark gray text for links */
-  font-size: 1.1em; /* Slightly larger font size */
-  font-weight: 600; /* Semi-bold font weight */
-  padding: 5px 0; /* Vertical padding for hover effect */
-  position: relative; /* Needed for the underline hover effect */
-  transition: color 0.3s ease;
-}
-
-.main-nav li a:hover {
-  color: #FF8C00; /* Sunset Orange on hover */
-}
-
-/* Underline effect on hover for main navigation */
-.main-nav li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: #FF8C00; /* Sunset Orange underline */
-  transition: width 0.4s ease;
-}
-
-.main-nav li a:hover::after {
-  width: 100%;
-  left: 0;
-  background: #FF8C00;
-}
-
-/* Style for active navigation link */
-.main-nav li a.active {
-  color: #005662; /* Active link color */
-  font-weight: 700; /* Bolder for active */
-}
-
-.main-nav li a.active::after {
-  width: 100%; /* Always show underline for active link */
-  left: 0;
-  background: #005662; /* Active link underline color */
-}
-
-.social-links {
-  display: flex; /* Flexbox for social links */
-  gap: 15px; /* Space between social links */
-}
-
-.social-links a {
-  text-decoration: none; /* Remove underline */
-  color: #005662; /* Teal/dark green color for social links */
+.main-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
   font-weight: 600;
-  font-size: 1.1em;
-  transition: color 0.3s ease;
+  color: var(--color-text-muted);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s ease;
 }
 
-.social-links a:hover {
-  color: #FF8C00; /* Sunset Orange on hover */
+.nav-icon {
+  font-size: 0.88rem;
+  opacity: 0.7;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    gap: 15px; /* Space between stacked items */
+.main-nav a:hover,
+.main-nav a.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.main-nav a.active .nav-icon {
+  color: var(--accent-emerald);
+  opacity: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    display: none;
+  }
+
+  .main-nav.open {
+    display: block;
   }
 
   .main-nav ul {
-    flex-direction: column; /* Stack nav links vertically */
-    gap: 10px; /* Reduce gap */
-    text-align: center; /* Center align text */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
 
-  .main-nav li a {
-    font-size: 1em; /* Slightly smaller font for nav links */
-  }
-
-  .social-links {
-    margin-top: 10px; /* Add some space above social links */
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.8em;
+  .create-btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
   }
 }

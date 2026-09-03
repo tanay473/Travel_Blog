@@ -1,2 +1,11 @@
+# Backend gitignore
+node_modules/
 .env
-node_modules
+*.toyml
+*.toml
+coverage/
+__tests__/
+tests/
+*.test.js
+*.spec.js
+*.log

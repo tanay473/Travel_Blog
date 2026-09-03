@@ -1,57 +1,73 @@
-// travel-blog-frontend/src/pages/BlogPostsPage.js
-
+// src/Pages/BlogPostsPage.jsx
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Ensure Link is imported
+import { useLocation } from 'react-router-dom';
+import BlogPostCard from '../Components/BlogPostCard';
+import LoadingSpinner from '../Components/LoadingSpinner';
 import blogApi from '../api/blogApi';
-import './../styles/BlogPostsPage.css';
+import '../styles/BlogPostsPage.css';
 
 function BlogPostsPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filterTag, setFilterTag] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const tagParam = searchParams.get('tag') || '';
+    setFilterTag(tagParam);
+
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const data = await blogApi.getAllPosts();
-        const sortedPosts = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setPosts(sortedPosts);
+        let data;
+        if (tagParam) {
+          data = await blogApi.getPostsByTag(tagParam);
+        } else {
+          data = await blogApi.getAllPosts();
+        }
+        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setPosts(sorted);
         setError(null);
       } catch (err) {
         console.error("Error fetching blog posts:", err);
-        setError("Failed to load blog posts. Please try again later.");
+        setError("Unable to load travel stories.");
       } finally {
         setLoading(false);
       }
     };
     fetchPosts();
-  }, []);
+  }, [location.search]);
 
   return (
-    <div className="blog-posts-page container">
-      <h1>All Blog Posts</h1>
-      {loading && <p className="loading-message">Loading posts...</p>}
-      {error && <p className="error-message">{error}</p>}
+    <div className="blog-posts-page container animate-fade-in">
+      <div className="page-header text-center">
+        <div className="badge badge-emerald">
+          <i className="fa-solid fa-compass"></i> Wanderlust Library
+        </div>
+        <h1>
+          {filterTag ? `Stories Tagged with "#${filterTag}"` : 'All Travel Stories'}
+        </h1>
+        <p className="subtitle">
+          Explore authentic journey logs, insider destination guides, and AI-categorized travel wisdom.
+        </p>
+      </div>
+
+      {loading && <LoadingSpinner />}
+      {error && <div className="error-message">{error}</div>}
+
       {!loading && !error && posts.length === 0 && (
-        <p className="no-posts-message">No blog posts found. Be the first to create one!</p>
+        <div className="no-posts-card glass-card">
+          <i className="fa-solid fa-folder-open no-posts-icon"></i>
+          <h3>No travel stories found</h3>
+          <p>There are no published stories matching this filter yet.</p>
+        </div>
       )}
+
       <div className="blog-posts-grid">
         {posts.map(post => (
-          <div key={post._id} className="blog-post-card">
-            <img src={post.imageUrl || 'https://via.placeholder.com/600x400?text=No+Image'} alt={post.title} className="post-card-image" />
-            <div className="post-card-content">
-              {/* --- VERIFY THIS LINK: Link for the title --- */}
-              <h3><Link to={`/blog/${post._id}`}>{post.title}</Link></h3>
-              <p className="post-card-excerpt">{post.excerpt}</p>
-              <div className="post-card-meta">
-                <span>By {post.author}</span>
-                <span>{new Date(post.date).toLocaleDateString()}</span>
-              </div>
-              {/* --- VERIFY THIS LINK: Link for the "Read More" button --- */}
-              <Link to={`/blog/${post._id}`} className="read-more-btn">Read More</Link>
-            </div>
-          </div>
+          <BlogPostCard key={post._id || post.id} post={post} />
         ))}
       </div>
     </div>

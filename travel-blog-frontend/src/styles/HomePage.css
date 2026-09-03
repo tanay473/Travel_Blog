@@ -1,119 +1,283 @@
+/* src/styles/HomePage.css */
+
+/* Hero Video Section */
 .hero-section {
-  background-image: url('https://images.unsplash.com/photo-1490604015690-b18c0c0082ea?auto=format&fit=crop&w=1600&h=600&q=80'); /* Example hero image */
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
-  min-height: 500px; /* Ensure hero is visible */
+  position: relative;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  text-align: center;
+  overflow: hidden;
+  padding: 80px 20px;
 }
 
-.hero-section::before { /* Overlay for better text readability */
-  content: '';
+.video-background {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65) contrast(1.1);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(9, 13, 22, 0.4) 0%, rgba(9, 13, 22, 0.92) 90%);
 }
 
 .hero-content {
-  position: relative; /* Bring content above overlay */
-  z-index: 1;
-  max-width: 800px;
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.hero-content h2 {
-  font-size: 3.5em;
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: var(--accent-emerald);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #ffffff;
   margin-bottom: 20px;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  line-height: 1.15;
 }
 
-.hero-content p {
-  font-size: 1.3em;
-  margin-bottom: 30px;
-  color: #eee;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+.gradient-text {
+  background: var(--gradient-emerald);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.featured-posts-section, .destination-highlights-section {
-  padding: 60px 0;
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin-bottom: 32px;
+}
+
+/* Search Box */
+.search-box-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-emerald);
+  font-size: 1.1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 16px 48px 16px 52px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.search-input:focus {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* NLP Tag Cloud Section */
+.nlp-tag-cloud-section {
+  padding: 60px 0 20px;
   text-align: center;
 }
 
-.featured-posts-section h2, .destination-highlights-section h2 {
-  font-size: 2.5em;
-  margin-bottom: 40px;
-  color: #005662; /* Deep Teal */
+.section-header {
+  margin-bottom: 32px;
+  text-align: center;
 }
 
-.post-grid, .destination-highlights-grid {
+.section-header h2 {
+  font-size: 2.2rem;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: left;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Featured Posts Section */
+.featured-posts-section {
+  padding: 50px 0;
+}
+
+.post-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
 }
 
-.view-all-link {
-  margin-top: 30px;
+.no-posts-card {
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.highlight-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.no-posts-icon {
+  font-size: 3rem;
+  color: var(--accent-emerald);
+  margin-bottom: 16px;
+}
+
+/* Destinations Showcase */
+.destinations-showcase-section {
+  padding: 60px 0 80px;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.destination-card-highlight {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card-highlight img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.destination-card-highlight:hover img {
+  transform: scale(1.08);
+}
+
+.dest-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 13, 22, 0.1) 0%, rgba(9, 13, 22, 0.95) 90%);
+  padding: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
-.highlight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+.dest-overlay h3 {
+  font-size: 1.6rem;
+  margin-top: 8px;
+  margin-bottom: 6px;
 }
 
-.highlight-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.dest-overlay p {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
 }
 
-.highlight-card h3 {
-  font-size: 1.4em;
-  color: #005662;
-  margin: 15px 0 10px;
+.dest-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.highlight-card p {
-  font-size: 0.95em;
-  color: #666;
-  padding: 0 15px;
-  flex-grow: 1; /* Push button to bottom */
+.dest-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
 }
 
-.highlight-card .btn-tertiary {
-  margin: 15px auto 20px; /* Centered button */
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .hero-content h2 {
-    font-size: 2.5em;
+  .hero-title {
+    font-size: 2.4rem;
   }
-  .hero-content p {
-    font-size: 1em;
+  .hero-subtitle {
+    font-size: 1rem;
   }
-  .featured-posts-section h2, .destination-highlights-section h2 {
-    font-size: 2em;
+  .flex-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
-  .post-grid, .destination-highlights-grid {
+  .post-grid, .destinations-grid {
     grid-template-columns: 1fr;
   }
 }

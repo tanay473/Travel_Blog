@@ -1,39 +1,69 @@
+// src/Pages/AboutPage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './../styles/AboutPage.css';
+import '../styles/AboutPage.css';
 
 function AboutPage() {
   return (
-    <div className="about-page container">
-      <section className="about-hero">
-        <img src="https://www.shutterstock.com/image-photo/adventurous-woman-edge-cliff-looking-600nw-1723129666.jpg" alt="Person looking at beautiful mountain landscape" className="about-hero-image" />
-        <h1>Our Story: Passion for Travel</h1>
-      </section>
-
-      <section className="about-content">
-        <div className="about-text">
-          <p>Welcome to TravelBlog, your ultimate source for inspiring travel stories, practical tips, and destination guides! We are [Your Name/Team Name], a group of passionate explorers dedicated to sharing the beauty and wonder of the world.</p>
-          <p>Our journey began in 2020, after a life-changing backpacking trip through Southeast Asia. We realized the joy of discovering new cultures, tasting exotic foods, and witnessing breathtaking landscapes was something we wanted to share with others.</p>
-          <p>Here at TravelBlog, we believe travel is more than just visiting places; it's about connecting with the world, learning about ourselves, and creating unforgettable memories. Our goal is to inspire you to step out of your comfort zone, embrace new experiences, and embark on your own incredible adventures.</p>
-          <p>We strive to provide authentic, well-researched content, from detailed itineraries and packing lists to personal anecdotes and photography tips. Whether you're a seasoned globetrotter or planning your very first trip, we hope our blog becomes your trusted companion.</p>
+    <div className="about-page container animate-fade-in">
+      <div className="page-header text-center">
+        <div className="badge badge-emerald">
+          <i className="fa-solid fa-heart"></i> Passion for Travel
         </div>
-        <div className="about-image-gallery">
-          {/* Corrected alt attributes */}
-          <img src="https://images.unsplash.com/photo-1506197603052-3b6ceebcfe9d?w=400&h=300&fit=crop&q=80" alt="Backpackers by scenic lake" />
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=300&fit=crop&q=80" alt="Mountain range at sunrise" />
-          <img src="https://images.unsplash.com/photo-1502602898669-a313028e3b97?w=400&h=300&fit=crop&q=80" alt="Historic street in Paris" />
+        <h1>Our Story & Mission</h1>
+        <p className="subtitle">Connecting explorers worldwide with authentic travel wisdom and AI-indexed destination guides.</p>
+      </div>
+
+      <section className="about-hero-card glass-card">
+        <img 
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" 
+          alt="Adventure Team" 
+          className="about-hero-image" 
+        />
+        <div className="about-hero-overlay">
+          <h2>Inspiring Journeys Across 80+ Countries</h2>
         </div>
       </section>
 
-      <section className="our-mission">
-        <h2>Our Mission</h2>
-        <p>To inspire, inform, and empower travelers worldwide to explore responsibly and create meaningful connections with destinations and cultures.</p>
-      </section>
+      <div className="about-grid">
+        <div className="about-text-card glass-card">
+          <h3><i className="fa-solid fa-compass gradient-icon"></i> Who We Are</h3>
+          <p>Welcome to Wanderlust, a next-generation travel platform built for modern adventurers. We combine personal storytelling with Gemini AI semantic NLP indexing so your travel searches find the most relevant, high-value recommendations.</p>
+          <p>Our journey began with a single backpack and a passion to explore hidden alpine trails, coastal retreats, and vibrant cultural hubs. Today, our community publishes authentic travel stories read by thousands worldwide.</p>
+        </div>
 
-      <section className="call-to-action-about">
-        <h3>Ready for your next adventure?</h3>
-        <Link to="/blog" className="btn-primary">Read Our Latest Posts</Link>
-        <Link to="/contact" className="btn-secondary">Get in Touch</Link>
+        <div className="about-mission-card glass-card">
+          <h3><i className="fa-solid fa-bullseye gradient-icon"></i> Our Mission</h3>
+          <p>To empower travelers to explore responsibly, discover off-the-beaten-path destinations, and connect deeply with local cultures.</p>
+          
+          <div className="mission-stats">
+            <div className="stat-box">
+              <span className="stat-num">500+</span>
+              <span className="stat-label">AI Tagged Posts</span>
+            </div>
+            <div className="stat-box">
+              <span className="stat-num">98%</span>
+              <span className="stat-label">Crawler Relevance</span>
+            </div>
+            <div className="stat-box">
+              <span className="stat-num">65k</span>
+              <span className="stat-label">Monthly Readers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section className="about-cta-card glass-card text-center">
+        <h2>Ready to Share Your Next Adventure?</h2>
+        <p>Join our community of travel authors and publish your journey today.</p>
+        <div className="cta-buttons">
+          <Link to="/create-post" className="btn btn-primary">
+            <i className="fa-solid fa-pen-to-square"></i> Publish Story
+          </Link>
+          <Link to="/blog" className="btn btn-glass">
+            <i className="fa-solid fa-newspaper"></i> Read Latest Posts
+          </Link>
+        </div>
       </section>
     </div>
   );
