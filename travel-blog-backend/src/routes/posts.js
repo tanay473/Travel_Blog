@@ -41,4 +41,7 @@ router.post('/users/:userId/ban', postController.banUser);
 // Live Expense Comparisons & Budget Insights
 router.post('/posts/:id/expenses', postController.addExpenseSubmission);
 
+// EXIF-Validated Proof of Travel
+router.post('/posts/verify-exif', postController.verifyExifMetadata);
+
 module.exports = router;

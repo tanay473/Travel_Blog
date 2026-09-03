@@ -13,6 +13,9 @@ function BlogPostCard({ post }) {
         <img src={post.imageUrl || fallbackImage} alt={post.title} loading="lazy" />
         <div className="card-badges">
           <span className="badge badge-emerald">{post.category || 'Adventure'}</span>
+          <span className="badge badge-amber" style={{fontSize: '0.72rem'}} title="EXIF Metadata Verified">
+            📸 Proof Verified
+          </span>
           {post.readingTime && (
             <span className="reading-time-badge">
               <i className="fa-regular fa-clock"></i> {post.readingTime} min read

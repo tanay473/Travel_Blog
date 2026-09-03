@@ -114,6 +114,15 @@ const blogApi = {
       body: JSON.stringify(expenseData)
     });
     return res.json();
+  },
+
+  verifyExifMetadata: async (data) => {
+    const res = await fetch(`${API_BASE_URL}/posts/verify-exif`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    return res.json();
   }
 };
 

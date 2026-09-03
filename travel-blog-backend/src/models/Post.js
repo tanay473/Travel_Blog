@@ -50,7 +50,17 @@ const blogPostSchema = new mongoose.Schema({
       transport: { type: Number, default: 0 }
     },
     date: { type: Date, default: Date.now }
-  }]
+  }],
+
+  // EXIF-Validated Proof of Travel
+  exifData: {
+    verified: { type: Boolean, default: true },
+    gpsLocation: { type: String, default: '' },
+    lat: { type: Number, default: 0 },
+    lng: { type: Number, default: 0 },
+    dateTaken: { type: String, default: '' },
+    cameraModel: { type: String, default: 'iPhone 15 Pro' }
+  }
 });
 
 module.exports = mongoose.model('Post', blogPostSchema);

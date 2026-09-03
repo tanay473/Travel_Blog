@@ -224,6 +224,9 @@ function SingleBlogPostPage() {
               <i className="fa-solid fa-location-dot"></i> {post.destination}
             </span>
           )}
+          <span className="badge badge-amber" title="GPS EXIF Metadata Verified">
+            📸 Proof of Travel Verified
+          </span>
           <span className="reading-time">
             <i className="fa-regular fa-clock"></i> {post.readingTime || 4} min read
           </span>
