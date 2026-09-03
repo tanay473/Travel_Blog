@@ -1,6 +1,6 @@
 # ⛵ Vignette Voyages — Next-Gen Travel Platform
 
-> **Vignette Voyages** is a modern, high-aesthetic travel publishing platform engineered with **iOS 18 Liquid Glassmorphism**, **Destination Community Hubs**, **Experience Specialty Ranking**, **Live Route Expense Analytics**, **User Ethics Moderation**, and **AI Semantic Tagging**.
+> **Vignette Voyages** is a modern editorial travel platform designed to bridge authentic storytelling, community-driven insights, and immersive visual design. It provides a transparent, verified space where travelers can document genuine journeys, discover regional cultures, and exchange realistic route insights through an elegant, tactile reading experience.
 
 ---
 
@@ -38,77 +38,3 @@
 ---
 
 ## 🏗️ Technical Architecture
-
-```
-Vignette Voyages Project/
-├── travel-blog-backend/             # Node.js & Express API Engine (Port 5000)
-│   ├── server.js                    # CORS setup & server bootstrapping
-│   └── src/
-│       ├── controllers/
-│       │   └── postController.js    # EXIF Verification, Expense Math, Communities, Ranking, Moderation
-│       ├── models/
-│       │   ├── Post.js             # Mongoose schema (exifData, authorSpent, communityExpenses, experienceType)
-│       │   └── User.js             # User moderation schema (isBanned, banReason, reports)
-│       ├── routes/
-│       │   └── posts.js            # API endpoints (/api/posts, /api/posts/verify-exif, /api/destinations)
-│       └── services/
-│           └── geminiService.js    # AI tagging & unique highlight extraction
-│
-└── travel-blog-frontend/            # React 18 Single Page Web Application (Port 3000)
-    ├── src/
-    │   ├── api/
-    │   │   └── blogApi.jsx          # Client HTTP service module
-    │   ├── Components/              # Header, Footer, BlogPostCard, Newsletter, LoadingSpinner
-    │   ├── Pages/
-    │   │   ├── HomePage.jsx                 # Video hero slider, Bento Grid, featured stories
-    │   │   ├── DestinationsPage.jsx         # Bento Grid destination directory
-    │   │   ├── DestinationCommunityPage.jsx # Destination community hub & experience filters
-    │   │   ├── SingleBlogPostPage.jsx       # Article reader, EXIF Badge, Live Expense Math Card
-    │   │   ├── CreatePostPage.jsx           # Story publishing, EXIF Metadata Parser, experience selector
-    │   │   ├── BlogPostsPage.jsx            # Filterable story library
-    │   │   ├── AboutPage.jsx                # Platform story & brand mission
-    │   │   └── ContactPage.jsx              # Community contact portal
-    │   └── styles/                      # Sand/Alabaster theme & iOS 18 glass CSS system
-```
-
----
-
-## ⚡ Quick Installation & Setup
-
-### Prerequisites
-- **Node.js**: v16+
-- **npm**: v8+
-
-### 1. Start the Backend API Server
-```bash
-cd travel-blog-backend
-npm install
-npm start
-```
-*The server will run on `http://localhost:5000`. If MongoDB is offline, it automatically operates with an in-memory fallback store populated with 18 sample stories.*
-
-### 2. Start the Frontend Web Application
-```bash
-cd travel-blog-frontend
-npm install
-npm start
-```
-*The React application will open automatically at `http://localhost:3000`.*
-
----
-
-## 🛠️ API Reference Summary
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/posts` | Fetch all stories (supports `?category=`, `?tag=`, `?search=`) |
-| `GET` | `/api/posts/:id` | Fetch single story with computed `expenseInsights` and `exifData` |
-| `POST` | `/api/posts/verify-exif` | Parse & verify photo EXIF GPS coordinates and capture date |
-| `POST` | `/api/posts/:id/expenses` | Anonymously log route spent amount & update community math |
-| `GET` | `/api/destinations/:destination/community` | Fetch destination hub stories, top experiences, and highlights |
-| `GET` | `/api/posts/experience-ranked` | Fetch stories ranked by experience type (`Cuisine`, `Stay`, `Nature`) |
-| `POST` | `/api/posts/:id/report` | Report a story for ethics review |
-| `POST` | `/api/users/:userId/ban` | Ban an unethical user and suppress their published content |
-
----
-
