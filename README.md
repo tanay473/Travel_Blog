@@ -1,40 +1,104 @@
-# ⛵ Vignette Voyages — Next-Gen Travel Platform
+# ⛵ Vignette Voyages
 
-> **Vignette Voyages** is a modern editorial travel platform designed to bridge authentic storytelling, community-driven insights, and immersive visual design. It provides a transparent, verified space where travelers can document genuine journeys, discover regional cultures, and exchange realistic route insights through an elegant, tactile reading experience.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/Frontend-React_18-61DAFB?logo=react)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Backend-Node.js_/_Express-339933?logo=nodedotjs)](https://nodejs.org/)
+[![Gemini AI](https://img.shields.io/badge/AI-Google_Gemini-8E75B2?logo=google)](https://deepmind.google/technologies/gemini/)
 
----
-
-## 🌟 Executive Key Highlights
-
-### 1. 📊 Live Route Expense Comparisons & Community Math
-- **Author vs. Community Budget Bar**: Compare author route expenditure (e.g., `₹40,000`) directly against live community traveler averages (e.g., `₹33,000`).
-- **Anonymous 1-Click Spend Logger**: Readers can anonymously log what they actually spent on a route, instantly updating live community savings percentages and contributor statistics.
-
-### 2. 🏝️ Destination Community Hubs
-- **Hotspot Community Centers**: Dedicated community pages (`/destinations/:destination`) gathering localized travel logs, community discussions, and top-voted experience stories.
-- **Unique Spot Highlights**: Automatic extraction of iconic local highlights (e.g., *"300-Year-Old Gion Tea House"*, *"Hanifaru Bay Manta Rays"*, *"72 Waterfalls Valley"*).
-
-### 3. 🍱 Experience Specialty Ranking
-- Filter and rank travel stories across three distinct travel experience pillars:
-  - **🍱 Cuisine & Dining**: Street food crawls, market tasting tours, Kaiseki dinners, mountain chalets.
-  - **🏨 Stays & Resorts**: Glass-floor overwater villas, desert riads, private onsens, cliffside eco-lodges.
-  - **🏔️ Nature & Hiking**: Alpine glacier trails, northern lights, volcanic craters, turquoise lake canoeing.
-
-### 4. Liquid Glassmorphic Aesthetic
-- **Sand & Warm Alabaster Palette**: Clean editorial canvas (`#fbf9f5` base, warm terracotta `#c2593f` & forest emerald `#137547` accents).
-- **Specular Glass Icons**: Squircle app icons with top specular lighting, inner drop shadows, and spring-physics hover micro-interactions (`backdrop-filter: blur(20px) saturate(180%)`).
-- **Immersive Video Hero Slider**: Interactive scene switcher with dynamic background motion.
-
-### 5. 🚩 User Ethics & Moderation System
-- Built-in post reporting dialog (`Report Ethics Violation`) and user ban enforcement system (`isBanned: true`), instantly suppressing unethical user content.
-
-### 6. 📸 EXIF-Validated Proof of Travel
-- **Automated GPS & Metadata Verification**: Parses photo EXIF headers for location coordinates (`latitude`/`longitude`), capture date, and camera device information to verify travelers physically visited the destination.
-- **Proof Badging**: Displays a verified trust badge (`📸 Proof of Travel Verified • Trust Score 99%`) on story cards and article headers to prevent spam and maintain high platform authenticity.
-
-### 7. 🤖 Automatic AI Story Tagging & SEO Microdata
-- Integrated with `@google/genai` (Gemini Flash) for automated extraction of semantic topic tags, search keywords, meta snippets, and Schema.org JSON-LD structured microdata.
+> **Vignette Voyages** is a next-generation, high-aesthetic travel publishing and community platform designed to bridge authentic travel storytelling with interactive community intelligence. Built with an editorial design system, automated metadata validation, and data-driven route analytics, Vignette Voyages provides an immersive environment for explorers to discover, share, and verify global travel experiences.
 
 ---
 
-## 🏗️ Technical Architecture
+## 🏛️ Platform Overview
+
+Vignette Voyages transforms traditional travel blogging into an interactive, community-verified ecosystem. The platform emphasizes aesthetic excellence, data integrity, and authentic community insights to help travelers plan, compare, and share meaningful journeys across global destinations.
+
+---
+
+## 🌟 Core Pillars
+
+### 1. 🌐 Global Destination Communities & Specialty Rankings
+- **Dedicated Regional Hubs**: Centralized community centers connecting travelers across global destinations.
+- **Experience Categorization**: Curated discovery organized into specialty travel pillars: **Cuisine & Dining**, **Stays & Accommodations**, and **Nature & Outdoor Exploration**.
+- **Local Highlight Extractions**: Automated highlighting of iconic spots and hidden regional gems.
+
+### 2. 💰 Community Route Budget Analytics
+- **Live Spend Benchmarks**: Real-time financial insights comparing author expenditures with aggregated community averages.
+- **Interactive Budget Submissions**: Anonymous community logging that continuously updates route savings metrics and traveler statistics.
+
+### 3. 🛡️ Trust, Authenticity & Moderation
+- **EXIF-Validated Proof of Travel**: Integrated image metadata parser that validates capture coordinates and timestamps to ensure authentic, on-the-ground reporting.
+- **Community Governance**: Reporting framework and content moderation controls to maintain high platform standards and combat spam.
+
+### 4. 🎨 Editorial Canvas & Glassmorphic Interface
+- **Refined Color Palette**: Sand & Warm Alabaster visual theme designed for maximum editorial readability.
+- **Modern Layout Architecture**: Bento Grid structural layouts, fluid micro-interactions, and responsive media showcases.
+
+### 5. 🤖 Intelligent Content Enrichment
+- **Automated Metadata Generation**: AI-assisted semantic tagging, search optimization keywords, and search crawler index formatting.
+- **Structured Search Integration**: Built-in Schema.org JSON-LD microdata for search engine discoverability.
+
+---
+
+## 🏗️ System Architecture
+
+```
+Vignette Voyages Project
+├── travel-blog-backend/             # Node.js & Express API Engine (Port 5000)
+│   ├── server.js                    # Core application server
+│   └── src/
+│       ├── controllers/             # Business logic & data processing
+│       ├── models/                  # Database schemas & data models
+│       ├── routes/                  # RESTful API endpoints
+│       └── services/                # External AI integration services
+│
+└── travel-blog-frontend/            # React 18 Web Application (Port 3000)
+    ├── src/
+    │   ├── api/                     # HTTP client service layer
+    │   ├── Components/              # Reusable UI components & navigation
+    │   ├── Pages/                   # Application routes & layout views
+    │   └── styles/                  # Design tokens & glassmorphic system
+```
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+- **Node.js** (v16.0 or higher)
+- **npm** (v8.0 or higher)
+
+### 1. Backend Service Setup
+```bash
+cd travel-blog-backend
+npm install
+npm start
+```
+*The backend API initializes on `http://localhost:5000`. If an external database connection is unavailable, the application operates seamlessly using an in-memory fallback dataset.*
+
+### 2. Frontend Application Setup
+```bash
+cd travel-blog-frontend
+npm install
+npm start
+```
+*The web interface will launch automatically at `http://localhost:3000`.*
+
+---
+
+## 🛠️ API Reference
+
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/api/posts` | `GET` | Retrieve published travel stories with optional filtering |
+| `/api/posts/:id` | `GET` | Retrieve detailed story data including route financial insights |
+| `/api/posts/verify-exif` | `POST` | Parse and validate photo metadata for proof-of-travel authentication |
+| `/api/posts/:id/expenses` | `POST` | Submit anonymous route expenditure data to update community averages |
+| `/api/destinations/:destination/community` | `GET` | Retrieve destination hub stories, top experiences, and highlights |
+| `/api/posts/experience-ranked` | `GET` | Retrieve stories categorized by travel experience specialty |
+| `/api/posts/:id/report` | `POST` | Submit a report for content moderation review |
+
+---
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
