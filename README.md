@@ -28,7 +28,11 @@
 ### 5. 🚩 User Ethics & Moderation System
 - Built-in post reporting dialog (`Report Ethics Violation`) and user ban enforcement system (`isBanned: true`), instantly suppressing unethical user content.
 
-### 6. 🤖 Automatic AI Story Tagging & SEO Microdata
+### 6. 📸 EXIF-Validated Proof of Travel
+- **Automated GPS & Metadata Verification**: Parses photo EXIF headers for location coordinates (`latitude`/`longitude`), capture date, and camera device information to verify travelers physically visited the destination.
+- **Proof Badging**: Displays a verified trust badge (`📸 Proof of Travel Verified • Trust Score 99%`) on story cards and article headers to prevent spam and maintain high platform authenticity.
+
+### 7. 🤖 Automatic AI Story Tagging & SEO Microdata
 - Integrated with `@google/genai` (Gemini Flash) for automated extraction of semantic topic tags, search keywords, meta snippets, and Schema.org JSON-LD structured microdata.
 
 ---
@@ -41,12 +45,12 @@ Vignette Voyages Project/
 │   ├── server.js                    # CORS setup & server bootstrapping
 │   └── src/
 │       ├── controllers/
-│       │   └── postController.js    # Expense Math, Communities, Ranking, Moderation, Fallback Store
+│       │   └── postController.js    # EXIF Verification, Expense Math, Communities, Ranking, Moderation
 │       ├── models/
-│       │   ├── Post.js             # Mongoose schema (authorSpent, communityExpenses, experienceType)
+│       │   ├── Post.js             # Mongoose schema (exifData, authorSpent, communityExpenses, experienceType)
 │       │   └── User.js             # User moderation schema (isBanned, banReason, reports)
 │       ├── routes/
-│       │   └── posts.js            # API endpoints (/api/posts, /api/destinations, /api/posts/:id/expenses)
+│       │   └── posts.js            # API endpoints (/api/posts, /api/posts/verify-exif, /api/destinations)
 │       └── services/
 │           └── geminiService.js    # AI tagging & unique highlight extraction
 │
@@ -59,8 +63,8 @@ Vignette Voyages Project/
     │   │   ├── HomePage.jsx                 # Video hero slider, Bento Grid, featured stories
     │   │   ├── DestinationsPage.jsx         # Bento Grid destination directory
     │   │   ├── DestinationCommunityPage.jsx # Destination community hub & experience filters
-    │   │   ├── SingleBlogPostPage.jsx       # Article reader, Live Expense Math Card, Report modal
-    │   │   ├── CreatePostPage.jsx           # Story publishing & experience selector
+    │   │   ├── SingleBlogPostPage.jsx       # Article reader, EXIF Badge, Live Expense Math Card
+    │   │   ├── CreatePostPage.jsx           # Story publishing, EXIF Metadata Parser, experience selector
     │   │   ├── BlogPostsPage.jsx            # Filterable story library
     │   │   ├── AboutPage.jsx                # Platform story & brand mission
     │   │   └── ContactPage.jsx              # Community contact portal
@@ -98,7 +102,8 @@ npm start
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `GET` | `/api/posts` | Fetch all stories (supports `?category=`, `?tag=`, `?search=`) |
-| `GET` | `/api/posts/:id` | Fetch single story with computed `expenseInsights` |
+| `GET` | `/api/posts/:id` | Fetch single story with computed `expenseInsights` and `exifData` |
+| `POST` | `/api/posts/verify-exif` | Parse & verify photo EXIF GPS coordinates and capture date |
 | `POST` | `/api/posts/:id/expenses` | Anonymously log route spent amount & update community math |
 | `GET` | `/api/destinations/:destination/community` | Fetch destination hub stories, top experiences, and highlights |
 | `GET` | `/api/posts/experience-ranked` | Fetch stories ranked by experience type (`Cuisine`, `Stay`, `Nature`) |
