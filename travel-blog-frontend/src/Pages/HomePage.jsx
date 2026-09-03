@@ -218,37 +218,56 @@ function HomePage() {
           </div>
 
           {/* Tile 2: Real-time Destination Pulse */}
-          <div className="bento-card bento-col-4 bento-pulse-card">
+          <div className="bento-card bento-col-4 bento-pulse-card ios-glass-card">
             <div className="bento-card-inner">
-              <div className="badge badge-emerald">
-                <i className="fa-solid fa-chart-line"></i> Live Pulse
+              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px'}}>
+                <div className="badge badge-emerald">
+                  <i className="fa-solid fa-chart-line"></i> Live Pulse
+                </div>
+                <span className="ios-glass-icon ios-glass-icon-emerald" style={{width: '36px', height: '36px', fontSize: '0.95rem'}}>
+                  <i className="fa-solid fa-bolt"></i>
+                </span>
               </div>
               <h3>Trending Features</h3>
               <ul className="pulse-list">
-                <li><i className="fa-solid fa-utensils"></i> <strong>300-Yr Gion Tea House</strong> (Kyoto)</li>
-                <li><i className="fa-solid fa-water"></i> <strong>72 Waterfalls Valley</strong> (Swiss Alps)</li>
-                <li><i className="fa-solid fa-fish"></i> <strong>Hanifaru Manta Rays</strong> (Maldives)</li>
-                <li><i className="fa-solid fa-mountain"></i> <strong>Path of the Gods</strong> (Amalfi)</li>
+                <li><span className="ios-glass-icon ios-glass-icon-amber" style={{width: '28px', height: '28px', fontSize: '0.75rem'}}><i className="fa-solid fa-utensils"></i></span> <strong>300-Yr Gion Tea House</strong> (Kyoto)</li>
+                <li><span className="ios-glass-icon ios-glass-icon-emerald" style={{width: '28px', height: '28px', fontSize: '0.75rem'}}><i className="fa-solid fa-water"></i></span> <strong>72 Waterfalls Valley</strong> (Swiss Alps)</li>
+                <li><span className="ios-glass-icon ios-glass-icon-purple" style={{width: '28px', height: '28px', fontSize: '0.75rem'}}><i className="fa-solid fa-fish"></i></span> <strong>Hanifaru Manta Rays</strong> (Maldives)</li>
+                <li><span className="ios-glass-icon" style={{width: '28px', height: '28px', fontSize: '0.75rem'}}><i className="fa-solid fa-mountain"></i></span> <strong>Path of the Gods</strong> (Amalfi)</li>
               </ul>
             </div>
           </div>
 
           {/* Tile 3: Experience Specialty Filters */}
-          <div className="bento-card bento-col-4 bento-experience-card">
+          <div className="bento-card bento-col-4 bento-experience-card ios-glass-card">
             <div className="bento-card-inner">
-              <h3>Specialty Filters</h3>
+              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px'}}>
+                <h3>Specialty Filters</h3>
+                <span className="ios-glass-icon ios-glass-icon-purple" style={{width: '36px', height: '36px', fontSize: '0.95rem'}}>
+                  <i className="fa-solid fa-sliders"></i>
+                </span>
+              </div>
               <p>Find stories tailored to your travel style:</p>
               <div className="specialty-pills-stack">
                 <Link to="/destinations/Kyoto,%20Japan" className="specialty-item cuisine">
-                  <span>🍱 Cuisine & Dining</span>
+                  <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+                    <span className="ios-glass-icon ios-glass-icon-amber" style={{width: '30px', height: '30px', fontSize: '0.8rem'}}>🍱</span>
+                    <span>Cuisine & Dining</span>
+                  </div>
                   <i className="fa-solid fa-chevron-right"></i>
                 </Link>
                 <Link to="/destinations/Baa%20Atoll,%20Maldives" className="specialty-item stay">
-                  <span>🏨 Stays & Resorts</span>
+                  <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+                    <span className="ios-glass-icon ios-glass-icon-purple" style={{width: '30px', height: '30px', fontSize: '0.8rem'}}>🏨</span>
+                    <span>Stays & Resorts</span>
+                  </div>
                   <i className="fa-solid fa-chevron-right"></i>
                 </Link>
                 <Link to="/destinations/Interlaken,%20Switzerland" className="specialty-item nature">
-                  <span>🏔️ Nature & Hiking</span>
+                  <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+                    <span className="ios-glass-icon ios-glass-icon-emerald" style={{width: '30px', height: '30px', fontSize: '0.8rem'}}>🏔️</span>
+                    <span>Nature & Hiking</span>
+                  </div>
                   <i className="fa-solid fa-chevron-right"></i>
                 </Link>
               </div>
@@ -256,10 +275,14 @@ function HomePage() {
           </div>
 
           {/* Tile 4: Minimalist Split Screen Quote */}
-          <div className="bento-card bento-col-8 bento-split-quote">
+          <div className="bento-card bento-col-8 bento-split-quote ios-glass-card">
             <div className="split-quote-left">
-              <i className="fa-solid fa-quote-left quote-mark"></i>
-              <blockquote>"Travel is not about the destination, but the quiet moments and shared meals along the way."</blockquote>
+              <span className="ios-glass-icon" style={{width: '44px', height: '44px', marginBottom: '12px'}}>
+                <i className="fa-solid fa-quote-left"></i>
+              </span>
+              <blockquote style={{fontStyle: 'italic', fontSize: '1.2rem', lineHeight: '1.45', marginBottom: '12px'}}>
+                "Travel is not about the destination, but the quiet moments and shared stories along the way."
+              </blockquote>
               <div className="quote-author">— Elena Rostova, Alpine Explorer</div>
             </div>
             <div className="split-quote-right">

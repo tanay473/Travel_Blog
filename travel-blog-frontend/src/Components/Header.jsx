@@ -10,7 +10,7 @@ function Header() {
     <header className="header">
       <div className="container header-content">
         <Link to="/" className="logo">
-          <span className="logo-icon"><i className="fa-solid fa-compass"></i></span>
+          <span className="ios-glass-icon"><i className="fa-solid fa-compass"></i></span>
           <span className="logo-text">Vignette<span className="logo-dot">.</span></span>
         </Link>
 
