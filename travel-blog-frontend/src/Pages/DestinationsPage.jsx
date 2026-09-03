@@ -9,32 +9,96 @@ const mockDestinations = [
     name: 'Kyoto, Japan',
     image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80',
     region: 'Asia',
-    description: 'Ancient capital known for its classical Buddhist temples, gardens, imperial palaces, and bamboo groves.',
-    excerpt: 'Explore Kinkaku-ji, Fushimi Inari-taisha, and traditional tea houses.'
+    description: 'Ancient capital known for classical Buddhist temples, traditional tea houses, and Gion machiya streets.',
+    excerpt: 'Explore Fushimi Inari-taisha, 300-year-old tea houses, and authentic Kaiseki dining.'
   },
   {
-    id: 'cinque-terre',
-    name: 'Cinque Terre, Italy',
+    id: 'interlaken',
+    name: 'Interlaken, Switzerland',
+    image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80',
+    region: 'Europe',
+    description: 'The outdoor adventure capital of Switzerland surrounded by glacial lakes and 4,000m alpine peaks.',
+    excerpt: 'Hike Lauterbrunnen valley of 72 waterfalls and cogwheel up to Jungfraujoch.'
+  },
+  {
+    id: 'amalfi',
+    name: 'Amalfi Coast, Italy',
     image: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80',
     region: 'Europe',
-    description: 'A string of five ancient cliffside fishing villages along the Italian Riviera.',
-    excerpt: 'Hike coastal trails, taste fresh pesto, and admire Mediterranean views.'
+    description: 'Pastel-colored cliffside villages overlooking turquoise Mediterranean waters and limoneto groves.',
+    excerpt: 'Hike Path of the Gods and sip fresh lemon granita in Positano.'
   },
   {
-    id: 'machu-picchu',
-    name: 'Machu Picchu, Peru',
-    image: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=800&q=80',
-    region: 'South America',
-    description: 'A 15th-century Inca citadel set high in the Andes Mountains, a UNESCO World Heritage site.',
-    excerpt: 'Hike the Inca Trail and explore breathtaking mountain ruins.'
+    id: 'marrakech',
+    name: 'Marrakech, Morocco',
+    image: 'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=800&q=80',
+    region: 'Africa',
+    description: 'Spiced medina markets, mosaic-tiled riads, and rooftop views of the snowcapped Atlas Mountains.',
+    excerpt: 'Feast on tagine at Jemaa el-Fnaa night market and escape into quiet courtyard plunge pools.'
   },
   {
     id: 'maldives',
     name: 'Baa Atoll, Maldives',
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
     region: 'Tropical',
-    description: 'Crystal lagoons, overwater bungalows, and vibrant marine coral ecosystems.',
-    excerpt: 'Unwind in luxury resorts and snorkel with gentle manta rays.'
+    description: 'Crystal turquoise lagoons, overwater glass-floor villas, and UNESCO marine biosphere reefs.',
+    excerpt: 'Unwind in luxury overwater bungalows and swim with gentle manta rays.'
+  },
+  {
+    id: 'bali',
+    name: 'Ubud, Bali',
+    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
+    region: 'Asia',
+    description: 'Emerald terraced rice paddies, ancient sacred water temples, and traditional Balinese culinary arts.',
+    excerpt: 'Walk Tegallalang rice terraces at sunrise and join authentic local cooking workshops.'
+  },
+  {
+    id: 'santorini',
+    name: 'Santorini, Greece',
+    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80',
+    region: 'Europe',
+    description: 'Iconic whitewashed cliffside towns, volcanic hot springs, and Aegean sea sunsets.',
+    excerpt: 'Sail the caldera on a golden hour catamaran and taste mineral volcanic wines.'
+  },
+  {
+    id: 'iceland',
+    name: 'Reykjavik, Iceland',
+    image: 'https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=800&q=80',
+    region: 'Europe',
+    description: 'Land of geysers, tectonic rifts, glacial lagoons, and dancing aurora borealis skies.',
+    excerpt: 'Drive the Golden Circle road trip and soak in geothermally heated natural pools.'
+  },
+  {
+    id: 'tokyo',
+    name: 'Tokyo, Japan',
+    image: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80',
+    region: 'Asia',
+    description: 'High-tech metropolis with historic Shinto shrines, subterranean ramen alleys, and Tsukiji sushi.',
+    excerpt: 'Eat fatty tuna nigiri at Tsukiji at sunrise and slurp rich tonkotsu broth under train tracks.'
+  },
+  {
+    id: 'paris',
+    name: 'Paris, France',
+    image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80',
+    region: 'Europe',
+    description: 'City of light famous for artisan boulangeries, cobblestone art districts, and Seine riverfront stays.',
+    excerpt: 'Sample fresh butter croissants in Le Marais and watch the Eiffel Tower sparkle from your balcony.'
+  },
+  {
+    id: 'banff',
+    name: 'Banff, Canada',
+    image: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80',
+    region: 'North America',
+    description: 'Glacial alpine wonderland featuring Moraine Lake canoes and the majestic Canadian Rockies.',
+    excerpt: 'Paddle red canoes across electric turquoise waters surrounded by snowcapped peaks.'
+  },
+  {
+    id: 'patagonia',
+    name: 'Torres del Paine, Chile',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+    region: 'South America',
+    description: 'Rugged Patagonia wilderness with towering granite peaks, calving glaciers, and guanaco herds.',
+    excerpt: 'Trek the legendary 8-day circuit and watch granite towers catch golden sunrise glow.'
   }
 ];
 
