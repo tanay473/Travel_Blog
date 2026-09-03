@@ -123,6 +123,7 @@ function HomePage() {
       <section className="hero-section">
         <div className="video-background">
           <video 
+            key={activeSlide}
             ref={videoRef}
             autoPlay 
             loop 
@@ -130,6 +131,8 @@ function HomePage() {
             playsInline 
             crossOrigin="anonymous"
             poster={currentSlideData.poster}
+            onCanPlay={(e) => e.target.play()}
+            onLoadedData={(e) => e.target.play()}
           >
             <source src={currentSlideData.videoUrl} type="video/mp4" />
           </video>
